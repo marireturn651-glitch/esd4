@@ -1,0 +1,822 @@
+cat > /mnt/user-data/outputs/CDAC_ESD_MockExam_2026.html << 'ENDOFFILE'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CDAC ESD Mock Exam Portal 2026 | PGCP-ESD Pune</title>
+<style>
+:root{
+--bg:#07090f;--s1:#0c1118;--s2:#111820;--s3:#16202c;--b1:#1b2b3e;
+--bdr:#1e3050;--bdr2:#2a4060;
+--acc:#3b82f6;--acc2:#1d4ed8;--a3:#60a5fa;
+--grn:#22c55e;--grn2:#16a34a;--red:#ef4444;--red2:#b91c1c;
+--ylw:#eab308;--pur:#a855f7;--org:#f97316;
+--txt:#e2e8f0;--t2:#94a3b8;--t3:#4b6080;
+--ec:#3b82f6;--dsa:#22c55e;--os:#eab308;--mcu:#a855f7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--txt)}
+button{font-family:inherit;cursor:pointer}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--s1)}
+::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:2px}
+.scr{display:none;min-height:100vh}
+.scr.on{display:flex}
+#sx.on{display:grid;grid-template-columns:1fr 272px;height:100vh;min-height:unset;overflow:hidden}
+/* LANDING */
+#sl{flex-direction:column;align-items:center;justify-content:center;padding:2rem;
+background:radial-gradient(ellipse 90% 60% at 50% 0%,#0c1e3a,var(--bg) 70%)}
+.logo{font-size:2.8rem;font-weight:900;letter-spacing:8px;text-align:center;
+background:linear-gradient(135deg,#60a5fa,#818cf8,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-sub{font-size:.7rem;color:var(--t3);letter-spacing:3px;text-align:center;margin:.35rem 0 1.8rem;text-transform:uppercase}
+.card{background:var(--s1);border:1px solid var(--bdr);border-radius:14px;padding:2rem;width:100%;max-width:450px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--pur),var(--grn))}
+.card h2{font-size:1.05rem;font-weight:700;margin-bottom:1.4rem}
+.fld{margin-bottom:1rem}
+.fld label{display:block;font-size:.67rem;font-weight:700;color:var(--t3);margin-bottom:.38rem;letter-spacing:1px;text-transform:uppercase}
+.fld input,.fld select{width:100%;background:var(--s2);border:1.5px solid var(--bdr);border-radius:7px;padding:.65rem .85rem;color:var(--txt);font:inherit;font-size:.88rem;outline:none;transition:border-color .2s}
+.fld input:focus,.fld select:focus{border-color:var(--acc)}
+.fld select option{background:var(--s2)}
+.btn-p{width:100%;padding:.82rem;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-size:.92rem;font-weight:700;border:none;border-radius:7px;transition:opacity .2s,transform .1s}
+.btn-p:hover{opacity:.88;transform:translateY(-1px)}
+.krow{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;width:100%;max-width:450px;margin-top:1.1rem}
+.kpi{background:var(--s1);border:1px solid var(--bdr);border-radius:9px;padding:.82rem;text-align:center}
+.kn{font-size:1.6rem;font-weight:800;color:var(--acc)}
+.kl{font-size:.6rem;color:var(--t3);margin-top:.12rem;text-transform:uppercase;letter-spacing:.5px}
+/* INSTRUCTIONS */
+#si{flex-direction:column;align-items:center;justify-content:center;padding:2rem}
+.icard{background:var(--s1);border:1px solid var(--bdr);border-radius:14px;padding:2rem;width:100%;max-width:500px;position:relative;overflow:hidden}
+.icard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--grn),var(--acc))}
+.icard h2{font-size:1.1rem;font-weight:800;color:var(--acc);margin-bottom:1.2rem}
+.ii{display:flex;gap:.75rem;margin-bottom:.82rem;font-size:.83rem;line-height:1.5;color:var(--t2)}
+.ii em{color:var(--ylw);font-style:normal;font-weight:700}
+.btn-go{margin-top:1.4rem;width:100%;padding:.82rem;background:linear-gradient(135deg,var(--grn),var(--grn2));color:#fff;font-size:.95rem;font-weight:800;border:none;border-radius:7px;transition:opacity .2s}
+.btn-go:hover{opacity:.88}
+/* EXAM */
+.exl{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.topbar{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.1rem;background:var(--s1);border-bottom:1px solid var(--bdr)}
+.tbl{display:flex;align-items:center;gap:.8rem}
+.qnum{font-size:.8rem;color:var(--t2)}
+.qnum strong{color:var(--txt)}
+.mbadge{padding:.17rem .58rem;border-radius:20px;font-size:.66rem;font-weight:700}
+.sbadge{padding:.14rem .5rem;border-radius:4px;font-size:.62rem;color:var(--t3);background:var(--s2);border:1px solid var(--bdr)}
+.tbr{display:flex;align-items:center;gap:.9rem}
+.slv{font-size:.8rem;color:var(--t2)}
+.slv strong{color:var(--acc)}
+.tmr{font-family:'Courier New',monospace;font-size:1.45rem;font-weight:700;color:var(--grn);min-width:62px;text-align:right}
+.tmr.w{color:var(--ylw)}.tmr.d{color:var(--red);animation:bk .9s infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.3}}
+.qbody{flex:1;overflow-y:auto;padding:1.4rem 1.7rem}
+.qhead{display:flex;align-items:center;gap:.45rem;margin-bottom:.82rem;flex-wrap:wrap}
+.qbdg{font-size:.65rem;font-weight:700;padding:.16rem .5rem;border-radius:4px;background:var(--s2);border:1px solid var(--bdr);color:var(--t3)}
+.qtxt{font-size:.94rem;line-height:1.74;margin-bottom:1rem;font-weight:500}
+pre.code{background:#04080d;border:1px solid var(--bdr);border-radius:7px;padding:.85rem 1rem;font-family:'Courier New',monospace;font-size:.77rem;line-height:1.62;margin-bottom:1rem;overflow-x:auto;border-left:3px solid var(--acc)}
+.kw{color:#93c5fd}.str{color:#6ee7b7}.num{color:#fcd34d}.cmt{color:#374f6b;font-style:italic}.pp{color:#c4b5fd}
+.opts{display:grid;gap:.52rem;margin-bottom:.85rem}
+.opt{display:flex;align-items:center;gap:.82rem;background:var(--s2);border:1.5px solid var(--bdr);border-radius:9px;padding:.75rem .95rem;cursor:pointer;transition:all .12s;font-size:.85rem}
+.opt:hover:not(.dis){border-color:var(--acc);background:var(--b1);transform:translateX(2px)}
+.opt.dis{cursor:default}
+.opt.ok{border-color:var(--grn)!important;background:rgba(34,197,94,.08)!important;color:var(--grn)!important}
+.opt.ng{border-color:var(--red)!important;background:rgba(239,68,68,.08)!important;color:var(--red)!important}
+.opt.hl{border-color:var(--grn)!important;background:rgba(34,197,94,.04)!important}
+.ocir{width:25px;height:25px;min-width:25px;border-radius:50%;background:var(--s1);border:1.5px solid var(--bdr2);display:flex;align-items:center;justify-content:center;font-size:.67rem;font-weight:700;flex-shrink:0}
+.opt.ok .ocir{background:var(--grn);border-color:var(--grn);color:#000}
+.opt.ng .ocir{background:var(--red);border-color:var(--red);color:#fff}
+.opt.hl .ocir{background:var(--grn);border-color:var(--grn);color:#000}
+.exp{background:rgba(59,130,246,.06);border-left:3px solid var(--acc);padding:.82rem 1rem;border-radius:0 7px 7px 0;font-size:.8rem;line-height:1.62;margin-top:.38rem}
+.exph{font-size:.64rem;font-weight:700;color:var(--acc);margin-bottom:.28rem;text-transform:uppercase;letter-spacing:.5px}
+.exnav{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:.45rem;padding:.62rem .95rem;background:var(--s1);border-top:1px solid var(--bdr)}
+.ng{display:flex;gap:.4rem}
+.nb{padding:.44rem .88rem;border-radius:6px;border:1px solid var(--bdr);background:var(--s2);color:var(--t2);font-size:.78rem;font-weight:600;transition:all .12s}
+.nb:hover{border-color:var(--acc);color:var(--acc)}
+.nb.ac{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none}
+.nb.ac:hover{opacity:.85}
+.nb.sk{border-color:var(--ylw);color:var(--ylw)}
+.nb.sk:hover{background:rgba(234,179,8,.1)}
+.nb.dn{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;border:none}
+.nb.dn:hover{opacity:.85}
+/* SIDEBAR */
+.sidebar{background:var(--s1);border-left:1px solid var(--bdr);display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.sbs{padding:.72rem;border-bottom:1px solid var(--bdr);flex-shrink:0}
+.sbh{font-size:.63rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.52rem}
+.mf{display:flex;gap:.26rem;flex-wrap:wrap}
+.mfb{padding:.17rem .48rem;border-radius:4px;font-size:.65rem;font-weight:700;cursor:pointer;border:1.5px solid transparent;background:transparent;transition:all .12s}
+.mfb.on{background:rgba(255,255,255,.07)}
+.mfb[data-m=ALL]{color:var(--t2);border-color:var(--bdr2)}
+.mfb[data-m=EC]{color:var(--ec);border-color:var(--ec)}
+.mfb[data-m=DSA]{color:var(--dsa);border-color:var(--dsa)}
+.mfb[data-m=OS]{color:var(--os);border-color:var(--os)}
+.mfb[data-m=MCU]{color:var(--mcu);border-color:var(--mcu)}
+.prows{margin-top:.58rem;display:flex;flex-direction:column;gap:.3rem}
+.pr{display:flex;align-items:center;gap:.4rem}
+.prl{font-size:.62rem;font-weight:700;width:28px;flex-shrink:0}
+.prb{flex:1;height:4px;background:var(--s3);border-radius:2px;overflow:hidden}
+.prf{height:100%;border-radius:2px;transition:width .4s}
+.prn{font-size:.58rem;color:var(--t3);width:28px;text-align:right;flex-shrink:0}
+.dgrid{flex:1;overflow-y:auto;padding:.62rem;display:grid;grid-template-columns:repeat(8,1fr);gap:.25rem;align-content:start}
+.dot{width:24px;height:24px;border-radius:3px;border:1.5px solid var(--bdr);background:var(--s2);font-size:.58rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--t3);transition:all .1s;font-weight:600}
+.dot:hover{border-color:var(--acc)}
+.dot.cur{border-color:var(--acc)!important;color:var(--acc)!important;background:var(--b1)!important}
+.dot.ok{background:var(--grn)!important;border-color:var(--grn)!important;color:#000!important}
+.dot.ng{background:var(--red)!important;border-color:var(--red)!important;color:#fff!important}
+.dot.sk{background:var(--ylw)!important;border-color:var(--ylw)!important;color:#000!important}
+.dot.hd{display:none}
+.sleg{padding:.48rem .72rem;border-top:1px solid var(--bdr);flex-shrink:0;display:flex;gap:.6rem;flex-wrap:wrap}
+.leg{display:flex;align-items:center;gap:.22rem;font-size:.58rem;color:var(--t3)}
+.legsq{width:6px;height:6px;border-radius:2px;flex-shrink:0}
+/* RESULT */
+#sr{flex-direction:column;overflow-y:auto;padding:1.8rem;background:var(--bg);min-height:100vh}
+.ri{max-width:640px;margin:0 auto;width:100%}
+.rhero{background:var(--s1);border:1px solid var(--bdr);border-radius:14px;padding:1.9rem 1.6rem;text-align:center;margin-bottom:1rem;position:relative;overflow:hidden}
+.rhero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--pur),var(--grn))}
+.rem{font-size:2.9rem;line-height:1;margin-bottom:.38rem}
+.rpct{font-size:3.8rem;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--a3),var(--pur));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.rmsg{color:var(--t2);margin:.38rem 0 1.2rem;font-size:.87rem}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.58rem}
+.sc{background:var(--s2);border-radius:7px;padding:.75rem;text-align:center;border:1px solid var(--bdr)}
+.scv{font-size:1.55rem;font-weight:800;line-height:1}
+.scl{font-size:.58rem;color:var(--t3);margin-top:.12rem;text-transform:uppercase;letter-spacing:.4px}
+.rsec{background:var(--s1);border:1px solid var(--bdr);border-radius:14px;padding:1.3rem;margin-bottom:1rem}
+.rsec h3{font-size:.88rem;font-weight:700;margin-bottom:.9rem}
+.mbr{margin-bottom:.72rem}
+.mbrt{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.2rem}
+.mbrb{height:5px;background:var(--s3);border-radius:2px;overflow:hidden}
+.mbrf{height:100%;border-radius:2px;transition:width .6s .1s}
+.sbr{margin-left:.9rem;margin-bottom:.45rem}
+.sbrt{display:flex;justify-content:space-between;font-size:.7rem;margin-bottom:.15rem}
+.sbrb{height:3px;background:var(--s3);border-radius:2px;overflow:hidden}
+.sbrf{height:100%;border-radius:2px}
+.podium{display:flex;justify-content:center;align-items:flex-end;gap:.62rem;margin-bottom:1.2rem}
+.ps{flex:1;max-width:105px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.pm{font-size:1.2rem;line-height:1;margin-bottom:.22rem}
+.pav{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;margin-bottom:.28rem}
+.pnm{font-size:.65rem;font-weight:700;word-break:break-all}
+.ppc{font-size:.58rem;color:var(--t3);margin-top:.08rem}
+.pb{border-radius:4px 4px 0 0;margin-top:.28rem;width:100%}
+.lbt{width:100%;border-collapse:collapse;font-size:.74rem}
+.lbt th{padding:.32rem .48rem;text-align:left;color:var(--t3);border-bottom:1px solid var(--bdr);font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.lbt td{padding:.4rem .48rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.lbt tr.you td{background:rgba(59,130,246,.07);color:var(--a3)}
+.ytag{background:var(--acc);color:#000;padding:.03rem .28rem;border-radius:3px;font-size:.55rem;font-weight:800;margin-left:.22rem}
+.ract{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;margin-top:.38rem}
+.ra{padding:.62rem 1.2rem;border-radius:7px;border:1.5px solid var(--bdr);background:var(--s2);color:var(--txt);font-size:.82rem;font-weight:700;transition:all .12s}
+.ra:hover{border-color:var(--acc);color:var(--acc)}
+.ra.pr{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none}
+.ra.pr:hover{opacity:.86}
+.cf{position:fixed;border-radius:2px;animation:cff linear forwards;pointer-events:none;z-index:9999}
+@keyframes cff{to{transform:translateY(110vh) rotate(540deg);opacity:0}}
+@media(max-width:640px){#sx.on{grid-template-columns:1fr}.sidebar{display:none}.krow{grid-template-columns:repeat(2,1fr)}.sgrid{grid-template-columns:repeat(2,1fr)}.qbody{padding:1.1rem}}
+</style>
+</head>
+<body>
+<!-- LANDING -->
+<div id="sl" class="scr on">
+<div class="logo">CDAC ESD</div>
+<div class="logo-sub">Mock Exam Portal &bull; PGCP-ESD Feb 2026 &bull; CCE Preparation</div>
+<div class="card">
+<h2>🎯 Start Practice Exam</h2>
+<div class="fld"><label>Your Name</label><input type="text" id="iname" placeholder="Enter your full name..." autocomplete="off"></div>
+<div class="fld"><label>Module</label>
+<select id="imod">
+<option value="ALL">📚 All Modules — 400+ Questions</option>
+<option value="EC">🔵 Embedded C Programming</option>
+<option value="DSA">🟢 Data Structures &amp; Algorithms</option>
+<option value="OS">🟡 Embedded Operating Systems</option>
+<option value="MCU">🟣 Microcontroller &amp; RISC-V</option>
+</select></div>
+<div class="fld"><label>Mode</label>
+<select id="imode">
+<option value="practice">🏋 Practice (untimed + instant feedback)</option>
+<option value="exam">⏱ Exam Mode (30 min / module)</option>
+<option value="quick">⚡ Quick Test (30 random, 15 min)</option>
+</select></div>
+<button class="btn-p" id="bproc">Proceed to Instructions →</button>
+</div>
+<div class="krow">
+<div class="kpi"><div class="kn" id="kq">400</div><div class="kl">Questions</div></div>
+<div class="kpi"><div class="kn">4</div><div class="kl">Modules</div></div>
+<div class="kpi"><div class="kn">0</div><div class="kl">Neg. Marks</div></div>
+<div class="kpi"><div class="kn" id="katt">0</div><div class="kl">Attempts</div></div>
+</div>
+</div>
+<!-- INSTRUCTIONS -->
+<div id="si" class="scr">
+<div class="icard">
+<h2>📋 Instructions</h2>
+<div class="ii"><span>📖</span><span>Questions from <em>actual CDAC PGCP-ESD syllabus</em> — all 4 modules, session-wise</span></div>
+<div class="ii"><span>✅</span><span>Marking: <em>+1 correct</em> / <em>0 wrong or skipped</em> — No negative marking</span></div>
+<div class="ii"><span>⏱</span><span id="iitime">Exam Mode: <em>30 min/module</em>, <em>90 min</em> for All. Auto-submits on timeout</span></div>
+<div class="ii"><span>🔀</span><span>Answer options <em>randomly shuffled</em> on every attempt</span></div>
+<div class="ii"><span>💡</span><span>After each answer: <em>detailed explanation</em> shown from syllabus</span></div>
+<div class="ii"><span>⌨</span><span>Keyboard: <em>1-4</em> to answer, <em>← →</em> to navigate</span></div>
+<div class="ii"><span>📊</span><span>Result shows <em>session-wise analysis</em> to find weak topics</span></div>
+<div class="ii"><span>🏆</span><span>Score saved to <em>Leaderboard</em> — track progress over time</span></div>
+<button class="btn-go" id="bbeg">🚀 Start Exam</button>
+</div>
+</div>
+<!-- EXAM -->
+<div id="sx" class="scr">
+<div class="exl">
+<div class="topbar">
+<div class="tbl">
+<span class="qnum">Q <strong id="qn">1</strong>/<strong id="qt">100</strong></span>
+<span class="mbadge" id="qmod"></span>
+<span class="sbadge" id="qsess"></span>
+</div>
+<div class="tbr">
+<span class="slv">Score: <strong id="scn">0</strong></span>
+<span class="tmr" id="tmr">30:00</span>
+</div>
+</div>
+<div class="qbody" id="qbody"></div>
+<div class="exnav">
+<div class="ng">
+<button class="nb" id="bprev">◀ Prev</button>
+<button class="nb sk" id="bskip">Skip ⏭</button>
+<button class="nb ac" id="bnext">Next ▶</button>
+</div>
+<button class="nb dn" id="bsub">Submit ✓</button>
+</div>
+</div>
+<div class="sidebar">
+<div class="sbs">
+<div class="sbh">Filter Module</div>
+<div class="mf">
+<button class="mfb on" data-m="ALL">ALL</button>
+<button class="mfb" data-m="EC">EC</button>
+<button class="mfb" data-m="DSA">DSA</button>
+<button class="mfb" data-m="OS">OS</button>
+<button class="mfb" data-m="MCU">MCU</button>
+</div>
+<div class="prows" id="prows"></div>
+</div>
+<div class="dgrid" id="dgrid"></div>
+<div class="sleg">
+<span class="leg"><span class="legsq" style="background:var(--grn)"></span>Correct</span>
+<span class="leg"><span class="legsq" style="background:var(--red)"></span>Wrong</span>
+<span class="leg"><span class="legsq" style="background:var(--ylw)"></span>Skipped</span>
+<span class="leg"><span class="legsq" style="background:var(--bdr)"></span>Pending</span>
+</div>
+</div>
+</div>
+<!-- RESULT -->
+<div id="sr" class="scr">
+<div class="ri">
+<div class="rhero">
+<div class="rem" id="rem"></div>
+<div class="rpct" id="rpct"></div>
+<div class="rmsg" id="rmsg"></div>
+<div class="sgrid">
+<div class="sc"><div class="scv" style="color:var(--grn)" id="rcor">0</div><div class="scl">Correct</div></div>
+<div class="sc"><div class="scv" style="color:var(--red)" id="rwr">0</div><div class="scl">Wrong</div></div>
+<div class="sc"><div class="scv" style="color:var(--ylw)" id="rsk">0</div><div class="scl">Skipped</div></div>
+<div class="sc"><div class="scv" style="color:var(--pur)" id="rtm">0m</div><div class="scl">Time</div></div>
+</div>
+</div>
+<div class="rsec" id="rbreak"></div>
+<div class="rsec" id="rlb"></div>
+<div class="ract">
+<button class="ra pr" id="bretry">🔄 Retake</button>
+<button class="ra" id="bhome">🏠 Home</button>
+</div>
+</div>
+</div>
+<script>
+// ═══════════════════════════════════════════════════════════
+// CDAC ESD MOCK EXAM — 400+ Questions (100+ per module)
+// Based on actual PGCP-ESD Feb 2026 syllabus
+// Format: {m, s, q, code?(optional), o:[4 options], a:0-3, e}
+// ═══════════════════════════════════════════════════════════
+const BANK=[
+// ════════════════════════════════════════════════════
+// EMBEDDED C PROGRAMMING — 110 Questions
+// Sessions 1-30 from actual syllabus
+// ════════════════════════════════════════════════════
+{m:"EC",s:"Intro to C",q:"Who developed the C programming language and in which year?",o:["Bjarne Stroustrup, 1985","Dennis Ritchie, 1972","Linus Torvalds, 1991","James Gosling, 1995"],a:1,e:"Dennis Ritchie developed C at Bell Labs in 1972. It was created to rewrite Unix OS. Stroustrup made C++, Torvalds made Linux, Gosling made Java."},
+{m:"EC",s:"Intro to C",q:"Which header file must be included to use printf() and scanf()?",o:["<stdlib.h>","<string.h>","<stdio.h>","<math.h>"],a:2,e:"<stdio.h> (Standard I/O) declares printf, scanf, fopen, fclose, fgets, fputc. Always include for I/O."},
+{m:"EC",s:"Intro to C",q:"What is the correct structure of a C program?",o:["Only main()","Only functions","#includes, global declarations, main(), user-defined functions","return 0 only"],a:2,e:"C program structure: preprocessor directives → global declarations → main() function → user-defined functions. Compilation unit is a translation unit."},
+{m:"EC",s:"Intro to C",q:"Output: printf(\"%d\", 5+3*2);",code:"printf(\"%d\", 5+3*2);",o:["16","11","13","10"],a:1,e:"* has higher precedence than +. 3*2=6 first, then 5+6=11. Use parentheses to override: (5+3)*2=16."},
+{m:"EC",s:"Intro to C",q:"Which is a valid C identifier?",o:["2fast","my-var","_counter","class"],a:2,e:"Identifiers must start with letter or _, contain only letters/digits/_, and not be a keyword. _counter is valid. 2fast starts with digit, my-var has hyphen, class is a keyword."},
+{m:"EC",s:"Intro to C",q:"printf(\"%c\", 65) outputs?",code:"printf(\"%c\", 65);",o:["65","A","a","Error"],a:1,e:"ASCII 65 = 'A'. %c prints character representation. %d would print 65, %c prints 'A'."},
+{m:"EC",s:"Intro to C",q:"A C statement must end with?",o:["Colon :","Dot .","Semicolon ;","Comma ,"],a:2,e:"Every C statement ends with semicolon (;). Missing it causes compile error. Exception: preprocessor directives (#include, #define) do NOT end with semicolons."},
+{m:"EC",s:"Linux & Toolchain",q:"GCC command to compile file.c and produce executable 'app'?",o:["gcc -c file.c","gcc file.c -o app","make file.c","ld file.c"],a:1,e:"gcc file.c -o app: compiles AND links, output='app'. -c: compile only (.o file). -Wall: all warnings. -g: debug info for GDB. -O2: optimize."},
+{m:"EC",s:"Linux & Toolchain",q:"What does the 'make' utility do?",o:["Edit files","Automates build — reads Makefile, recompiles only changed files based on timestamps","Run tests","Debug code"],a:1,e:"make reads Makefile (target: dependencies + recipe). If dependency newer than target → recompile. Only rebuilds changed files — essential for large projects."},
+{m:"EC",s:"Linux & Toolchain",q:"GCC flag -g does what?",o:["Optimize","Ignore warnings","Add debug symbols for GDB (source line info, variable names)","Link library"],a:2,e:"-g includes debug info: source line numbers, variable/function names. Required for GDB step-by-step debugging. Use with -O0 to prevent optimization confusing debugger."},
+{m:"EC",s:"Linux & Toolchain",q:"What does an object file (.o) contain?",o:["Source code","Compiled machine code for one .c file — not yet linked","Final executable","Header file"],a:1,e:"Object file: result of compiling one .c file. Contains machine code but with unresolved references to other functions/globals. Linker combines .o files into executable."},
+{m:"EC",s:"Data Types",q:"Size of 'int' on most 32-bit and 64-bit systems?",o:["1 byte","2 bytes","4 bytes","8 bytes"],a:2,e:"int = 4 bytes on most systems. For guaranteed size use <stdint.h>: int32_t always 32 bits. Use sizeof(int) to verify on your platform."},
+{m:"EC",s:"Data Types",q:"Range of unsigned char?",o:["-128 to 127","0 to 255","-256 to 255","0 to 127"],a:1,e:"unsigned char: 1 byte, no sign bit. 2^8=256 values → 0 to 255. Signed char: -128 to 127. Always use uint8_t from <stdint.h> in embedded code."},
+{m:"EC",s:"Data Types",q:"printf(\"%d\", sizeof(double)) outputs?",code:"printf(\"%d\", sizeof(double));",o:["4","8","16","2"],a:1,e:"double = 8 bytes (64-bit IEEE 754) on all modern platforms. float = 4 bytes. sizeof returns size_t (should use %zu, but %d works on most systems)."},
+{m:"EC",s:"Data Types",q:"Best type for MCU hardware register access?",o:["char","int","volatile uint32_t*","double"],a:2,e:"volatile uint32_t*: volatile prevents optimization (every access goes to hardware), uint32_t guarantees 32-bit width, pointer for memory-mapped address access."},
+{m:"EC",s:"Data Types",q:"Implicit type promotion: int + float gives?",o:["int","float","double","long"],a:1,e:"Promotion rules: char/short → int. int + float → float. float + double → double. Prevents overflow in intermediate calculations. Explicit cast: (float)5/2 = 2.5."},
+{m:"EC",s:"Operators",q:"Result of 17 % 5?",o:["2","3","1","4"],a:0,e:"17 % 5: 17 = 3×5 + 2. Remainder = 2. Modulo only for integers. For negatives: -7 % 3 = -1 in C (sign follows dividend in C99)."},
+{m:"EC",s:"Operators",q:"5/2 in C gives?",o:["2.5","2","3","2.0"],a:1,e:"Integer division truncates toward zero: 5/2=2 (not 2.5). For float result: (float)5/2 = 2.5 or 5.0/2 = 2.5. Note: 5/2.0 also gives 2.5 due to promotion."},
+{m:"EC",s:"Operators",q:"Difference between == and =?",o:["Same","== compares (returns 0 or 1), = assigns (stores value)","= compares","Both assign"],a:1,e:"= assigns: x=5 stores 5 in x. == compares: x==5 returns 1 if equal, 0 otherwise. Bug: if(x=5) is always true! if(x==5) for comparison."},
+{m:"EC",s:"Operators",q:"Output: int x=10; printf(\"%d\", x++);",code:"int x=10; printf(\"%d\", x++);",o:["10","11","9","Error"],a:0,e:"x++ post-increment: returns current value (10) THEN increments. printf prints 10, then x becomes 11. ++x pre-increment: increments first, returns 11."},
+{m:"EC",s:"Operators",q:"Output: int x=10; printf(\"%d\", ++x);",code:"int x=10; printf(\"%d\", ++x);",o:["10","11","9","Error"],a:1,e:"++x pre-increment: increments x to 11 THEN returns value. printf prints 11. Contrast: x++ returns old value then increments."},
+{m:"EC",s:"Operators",q:"Result of: int a=5; (a>3 && a<10)?",code:"int a=5; printf(\"%d\", a>3 && a<10);",o:["0","1","5","True"],a:1,e:"a>3 is true(1), a<10 is true(1). 1&&1=1. Logical AND returns 1 if both operands non-zero. In C, any non-zero is true."},
+{m:"EC",s:"Bitwise Ops",q:"12 & 10 = ?",o:["8","14","2","22"],a:0,e:"12=1100, 10=1010. AND: 1100&1010=1000=8. Each bit: 1&1=1, 0&x=0. Use & to CLEAR bits or CHECK bits."},
+{m:"EC",s:"Bitwise Ops",q:"12 | 10 = ?",o:["8","14","2","22"],a:1,e:"12=1100, 10=1010. OR: 1100|1010=1110=14. Each bit: 0|0=0, x|1=1. Use | to SET bits."},
+{m:"EC",s:"Bitwise Ops",q:"12 ^ 10 = ?",o:["8","6","14","22"],a:1,e:"12=1100, 10=1010. XOR: 1100^1010=0110=6. Bits differ→1, same→0. XOR with self=0: x^x=0. Use ^ to TOGGLE bits."},
+{m:"EC",s:"Bitwise Ops",q:"How to SET bit 5 of variable x?",o:["x &= (1<<5)","x |= (1<<5)","x ^= (1<<5)","x >>= 5"],a:1,e:"SET bit n: x |= (1<<n). OR with 1 always sets. CLEAR: x &= ~(1<<n). TOGGLE: x ^= (1<<n). CHECK: (x>>n)&1."},
+{m:"EC",s:"Bitwise Ops",q:"How to CLEAR bit 3 of variable x?",o:["x |= (1<<3)","x ^= (1<<3)","x &= ~(1<<3)","x >>= 3"],a:2,e:"CLEAR bit n: x &= ~(1<<n). ~(1<<3)=...11110111. AND clears bit 3, leaves all others unchanged."},
+{m:"EC",s:"Bitwise Ops",q:"How to CHECK if bit 4 is set?",o:["x & 4","(x >> 4) & 1","x | (1<<4)","x ^ (1<<4)"],a:1,e:"Check bit n: (x>>n)&1. Shift bit n to position 0, AND with 1 isolates it. Returns 1 if set, 0 if clear. Also: (x & (1<<n)) != 0."},
+{m:"EC",s:"Bitwise Ops",q:"printf(\"%d\", 1<<4)?",code:"printf(\"%d\", 1<<4);",o:["4","8","16","32"],a:2,e:"Left shift by n = multiply by 2^n. 1<<4=16. Fast power-of-2 computation. 1<<0=1, 1<<1=2, 1<<2=4, 1<<3=8, 1<<4=16."},
+{m:"EC",s:"Bitwise Ops",q:"What does x & (x-1) compute?",code:"x = x & (x-1);",o:["Doubles x","Clears lowest set bit of x","Sets all bits","Halves x"],a:1,e:"x&(x-1) clears lowest set bit. 12=1100, 12-1=1011, 12&11=1000. Kernighan's algorithm: count set bits by repeatedly clearing lowest until x=0."},
+{m:"EC",s:"Bitwise Ops",q:"Extract lower nibble (bits 0-3) from byte x?",o:["x >> 4","x & 0xF0","x & 0x0F","x ^ 0xFF"],a:2,e:"x & 0x0F: 0x0F=00001111. Keeps lower 4 bits, clears upper 4. For upper nibble: (x>>4)&0x0F. Used in BCD conversion, hex display, register bit fields."},
+{m:"EC",s:"Bitwise Ops",q:"~5 on a 32-bit system?",o:["-4","-5","-6","5"],a:2,e:"~5 inverts all bits. 5=...0101, ~5=...1010. In two's complement: ~x = -(x+1). So ~5 = -6."},
+{m:"EC",s:"Control Flow",q:"Output: for(int i=0;i<5;i+=2) printf(\"%d \",i);",code:"for(int i=0;i<5;i+=2) printf(\"%d \",i);",o:["0 1 2 3 4","0 2 4","1 3 5","0 2 4 6"],a:1,e:"i=0(print 0), i=2(print 2), i=4(print 4), i=6(6<5 false, exit). Output: 0 2 4."},
+{m:"EC",s:"Control Flow",q:"Which loop guarantees at least one execution?",o:["for","while","do-while","switch"],a:2,e:"do-while: body executes first, condition checked after. Always executes at least once. Used for input validation (re-prompt until valid), menu loops."},
+{m:"EC",s:"Control Flow",q:"Without break in switch, what happens after matching case?",o:["Exits switch","Goes to default only","Falls through to next case(s)","Compile error"],a:2,e:"Fall-through: without break, execution continues to next case. Must add break to prevent. Intentional fall-through should be commented /* FALLTHROUGH */."},
+{m:"EC",s:"Control Flow",q:"What does 'continue' do?",o:["Exits loop","Skips rest of current iteration, goes to next","Restarts loop from beginning","Breaks outer loop"],a:1,e:"continue: skip remaining body of current iteration, jump to loop increment/condition. break: exit the entire loop. In nested loops, only affects innermost."},
+{m:"EC",s:"Control Flow",q:"Output: int x=5; switch(x){case 5:printf(\"A\");break;case 6:printf(\"B\");default:printf(\"C\");}",code:"int x=5;\nswitch(x){\n  case 5: printf(\"A\"); break;\n  case 6: printf(\"B\");\n  default: printf(\"C\");\n}",o:["A","ABC","AC","AB"],a:0,e:"case 5 matches, prints 'A', break exits. Cases 6 and default never reached. Without break, would fall through to B and C."},
+{m:"EC",s:"Control Flow",q:"Output: int i=0; while(i++<3) printf(\"%d \",i);",code:"int i=0;\nwhile(i++<3) printf(\"%d \",i);",o:["0 1 2","1 2 3","1 2 3 4","0 1 2 3"],a:1,e:"Post-increment in condition: check i then increment. i=0: 0<3 true, i→1, print 1. i=1: 1<3 true, i→2, print 2. i=2: 2<3 true, i→3, print 3. i=3: 3<3 false exit. Output: 1 2 3."},
+{m:"EC",s:"Functions",q:"Call by value vs call by reference?",o:["Same","Value: copy passed (no effect on original). Reference: address passed (can modify original)","Reference always slower","Value only for int"],a:1,e:"Call by value: copy is passed — safe, no accidental modification. Call by reference (pointer): address is passed — can modify original. Arrays always passed by reference (decay to pointer)."},
+{m:"EC",s:"Functions",q:"Output: int sq(int x){return x*x;} printf(\"%d\",sq(7));",code:"int sq(int x){return x*x;}\nprintf(\"%d\",sq(7));",o:["14","49","7","Error"],a:1,e:"sq(7) computes 7*7=49, returns 49. printf prints 49."},
+{m:"EC",s:"Functions",q:"What is a function prototype?",o:["Function body","Declaration before use: return_type func(param_types); tells compiler signature","Comment","Same as definition"],a:1,e:"Prototype: int add(int, int); — tells compiler return type and parameter types before definition. Allows calling function before it is defined. Usually in header files."},
+{m:"EC",s:"Functions",q:"Result of (float)5/2?",code:"(float)5/2",o:["2","2.5","2.0","Error"],a:1,e:"(float)5 converts 5 to 5.0f, then 5.0f/2=2.5 (float division). Without cast: 5/2=2 (integer division). Cast has high precedence — applies to 5 only."},
+{m:"EC",s:"Functions",q:"Can a C function return multiple values directly?",o:["Yes, comma-separated","No — use pointer params, struct, or globals","Yes with multiple return","Only with void"],a:1,e:"C returns one value. Workarounds: pass output pointers (void getMinMax(int arr[], int n, int *min, int *max)), return struct, or use global variables."},
+{m:"EC",s:"Recursion",q:"What must every recursive function have?",o:["void return type","Multiple parameters","A base case to terminate recursion","A loop"],a:2,e:"Base case: condition returning directly without further recursive calls (e.g., if(n<=0) return 0). Without it → infinite recursion → stack overflow crash."},
+{m:"EC",s:"Recursion",q:"fact(5) where fact(n)=n*fact(n-1), fact(1)=1?",code:"int fact(int n){\n  if(n<=1) return 1;\n  return n*fact(n-1);\n}",o:["24","120","60","25"],a:1,e:"fact(5)=5*fact(4)=5*4*fact(3)=5*4*3*fact(2)=5*4*3*2*fact(1)=5*4*3*2*1=120."},
+{m:"EC",s:"Recursion",q:"Recursion uses which memory?",o:["Heap","Stack — each call creates new frame with locals and return address","Global","Register"],a:1,e:"Each recursive call pushes a stack frame (local variables, parameters, return address). Too many calls → stack overflow. Default stack: ~1-8MB. Iterative uses O(1) stack."},
+{m:"EC",s:"Recursion",q:"fib(5) where fib(0)=0, fib(1)=1, fib(n)=fib(n-1)+fib(n-2)?",o:["3","5","8","4"],a:1,e:"fib series: 0,1,1,2,3,5. fib(5)=fib(4)+fib(3)=3+2=5. Naive recursion is O(2^n). Memoization or iteration makes it O(n)."},
+{m:"EC",s:"Recursion",q:"What is tail recursion?",o:["Recursion in for loop","Recursive call is the LAST operation — compiler can optimize to iteration","Backward recursion","Mutual recursion only"],a:1,e:"Tail call: return func(n-1); — nothing done after call. Compiler can replace with loop (tail call optimization), avoiding stack growth. GCC: -O2 enables TCO."},
+{m:"EC",s:"Storage Classes",q:"Default storage class for local variable?",o:["static","extern","register","auto"],a:3,e:"auto: allocated on stack when function called, destroyed on return. Default for all local variables. Never need to write 'auto' explicitly in modern C."},
+{m:"EC",s:"Storage Classes",q:"What does static local variable do?",o:["Destroyed after function returns","Persists between calls, initialized once, retains value","Shared across all files","Stored in register"],a:1,e:"static local: stored in data segment (not stack), initialized once at program start (to 0 if unspecified), value retained between calls. Useful for call counter, state machine."},
+{m:"EC",s:"Storage Classes",q:"Output: void count(){static int n=0; printf(\"%d \",++n);} count();count();count();",code:"void count(){\n  static int n=0;\n  printf(\"%d \",++n);\n}",o:["1 1 1","0 1 2","1 2 3","Error"],a:2,e:"static int n=0: initialized once. Each call increments and prints. Output: 1 2 3. Non-static would print 1 1 1 (reset to 0 each call)."},
+{m:"EC",s:"Storage Classes",q:"extern keyword means?",o:["Faster variable","Declares variable defined in another file — no memory allocated","Makes constant","Allocates on heap"],a:1,e:"extern int x; — declaration without definition. Linker finds definition in another .c file. Used for sharing global variables across multiple source files."},
+{m:"EC",s:"Arrays",q:"Output: int a[]={10,20,30,40}; printf(\"%d\",a[2]);",code:"int a[]={10,20,30,40};\nprintf(\"%d\",a[2]);",o:["10","20","30","40"],a:2,e:"0-indexed: a[0]=10, a[1]=20, a[2]=30, a[3]=40. Output: 30."},
+{m:"EC",s:"Arrays",q:"Array name in C is?",o:["Copy of array","Constant pointer to first element: arr == &arr[0]","Array size","Random value"],a:1,e:"arr decays to &arr[0] in most contexts. arr[i] == *(arr+i). Exception: sizeof(arr) gives total array size; &arr gives pointer to whole array (different type)."},
+{m:"EC",s:"Arrays",q:"int a[5]={1,2}; Values of a[3] and a[4]?",code:"int a[5]={1,2};",o:["Garbage","0 and 0","Undefined","1 and 2"],a:1,e:"Partial initialization: a[0]=1, a[1]=2. Remaining elements a[2], a[3], a[4] auto-zero-initialized. Output: 0 and 0."},
+{m:"EC",s:"Arrays",q:"Find size of array in same scope?",o:["arr.length","strlen(arr)","sizeof(arr)/sizeof(arr[0])","size(arr)"],a:2,e:"sizeof(arr)=total bytes. sizeof(arr[0])=bytes per element. Division=element count. ONLY in same scope — once passed to function, arr decays to pointer, sizeof gives pointer size (4 or 8)."},
+{m:"EC",s:"Arrays",q:"Accessing arr[10] when arr has 5 elements?",o:["Returns 0","Compile error","Undefined behavior — may crash or give garbage","Returns -1"],a:2,e:"Out-of-bounds access: undefined behavior in C. No automatic bounds checking! May read garbage, write to wrong memory, or crash. Always validate index."},
+{m:"EC",s:"Strings",q:"How are strings stored in C?",o:["As length+data","As null-terminated char arrays — last char is '\\0' (ASCII 0)","As C++ string objects","As Pascal strings with length prefix"],a:1,e:"C string: char arr[]=\"hello\"={'h','e','l','l','o','\\0'}. '\\0' marks end. All string functions rely on '\\0'. sizeof=6 (includes \\0), strlen=5 (excludes \\0)."},
+{m:"EC",s:"Strings",q:"strlen(\"CDAC\") = ?",code:"strlen(\"CDAC\")",o:["5","4","3","Error"],a:1,e:"strlen counts characters BEFORE '\\0'. C-D-A-C = 4 characters. sizeof(\"CDAC\") = 5 (includes '\\0'). strlen is O(n) — scans to find null terminator."},
+{m:"EC",s:"Strings",q:"strcmp(\"abc\",\"abc\") returns?",o:["1","0","'a'","-1"],a:1,e:"strcmp: 0=equal, negative=str1<str2, positive=str1>str2. NEVER use == for strings (compares addresses!). Use if(strcmp(s1,s2)==0) to check equality."},
+{m:"EC",s:"Strings",q:"Why is gets() unsafe?",o:["Slow","No bounds check → buffer overflow. Removed from C11. Use fgets()","Wrong return type","Doesn't read spaces"],a:1,e:"gets() reads with no size limit — attacker crafts input to overflow buffer. fgets(buf, sizeof(buf), stdin) limits input safely. gets() removed in C11."},
+{m:"EC",s:"Strings",q:"strncpy(dst, src, n) vs strcpy(dst, src)?",o:["Same","strncpy copies at most n bytes — safer. strcpy has no bounds check — dangerous","strncpy is slower only","strcpy is safer"],a:1,e:"strncpy: limits copy to n bytes, preventing buffer overflow. Warning: may not null-terminate if src≥n. Always: dst[n-1]='\\0'; after strncpy for safety."},
+{m:"EC",s:"Pointers",q:"& (address-of) operator returns?",o:["Value","Memory address of variable","Bitwise AND","Pointer arithmetic"],a:1,e:"&x returns memory address of x. Used: int *p=&x; scanf(\"%d\",&x); pass by reference: func(&var). printf(\"%p\",&x) prints address."},
+{m:"EC",s:"Pointers",q:"Output: int x=42; int *p=&x; printf(\"%d\",*p);",code:"int x=42;\nint *p=&x;\nprintf(\"%d\",*p);",o:["42","Address","0","Error"],a:0,e:"p stores address of x. *p dereferences: reads value at that address = 42. *p=99 would write 99 to x."},
+{m:"EC",s:"Pointers",q:"If int *p=arr, *(p+3) equals?",o:["arr[1]","arr[2]","arr[3]","3 bytes ahead"],a:2,e:"Pointer arithmetic: p+3 advances by 3*sizeof(int)=12 bytes on 32-bit. *(p+3) = arr[3]. This is exactly how arr[i] works: *(arr+i)."},
+{m:"EC",s:"Pointers",q:"NULL pointer?",o:["Points to address 0 — dereferencing causes segfault","Empty pointer type","void pointer","Fastest pointer"],a:0,e:"NULL=(void*)0. Dereferencing NULL → segmentation fault (OS catches access to page 0). Always check: if(ptr!=NULL) before dereferencing. Initialize unused pointers to NULL."},
+{m:"EC",s:"Pointers",q:"void* (void pointer)?",o:["Can only point to void functions","Generic pointer — holds any address, must cast before dereferencing","Cannot be dereferenced ever","Only NULL"],a:1,e:"void*: universal pointer. malloc() returns void*. Can store any address: void *p=&x. To use: int *ip=(int*)p; *ip. Cannot do arithmetic on void*."},
+{m:"EC",s:"Pointers",q:"Output: int a=5; int *p=&a; *p=99; printf(\"%d\",a);",code:"int a=5;\nint *p=&a;\n*p=99;\nprintf(\"%d\",a);",o:["5","99","Error","0"],a:1,e:"p points to a. *p=99 writes 99 AT the address p holds (which is a). a is now 99. This is how call-by-reference modifies original."},
+{m:"EC",s:"Pointers",q:"Function pointer declaration for function taking int, returning int?",o:["int *fp(int)","int (*fp)(int)","int *(fp)(int)","(int*)fp(int)"],a:1,e:"int (*fp)(int): parentheses around *fp bind first, making fp a pointer to function. int *fp(int) would declare function returning int*. Use: fp=&add; fp(5);"},
+{m:"EC",s:"Pointers",q:"int **pp is?",o:["Pointer to int","Pointer to pointer to int","Two pointers","Double precision pointer"],a:1,e:"int **pp: pointer to (pointer to int). *pp gives int*, **pp gives int. Used for: dynamic 2D arrays, modifying pointer in function (char **argv), array of strings."},
+{m:"EC",s:"Dynamic Memory",q:"malloc(sizeof(int)*5) allocates?",o:["5 elements pre-initialized","20 bytes of UNINITIALIZED heap — returns void* or NULL on failure","5 on stack","5 zeroed bytes"],a:1,e:"malloc(20): 20 bytes uninitialized. Must check: if(!ptr){/* error */}. Must free when done. Returns void* — cast: int *p=(int*)malloc(n); or assign directly (implicit in C)."},
+{m:"EC",s:"Dynamic Memory",q:"calloc vs malloc?",o:["Same","calloc(n,size) zero-initializes. malloc leaves memory uninitialized (garbage)","calloc always slower","malloc safer"],a:1,e:"calloc: allocates AND zeroes. malloc: allocates, may have garbage. calloc slightly slower (memsets to 0). Both return NULL on failure. Prefer calloc when zero-init needed."},
+{m:"EC",s:"Dynamic Memory",q:"Memory leak?",o:["Slow access","malloc without free — heap memory never returned, eventually crashes program","Stack overflow","Cache miss"],a:1,e:"Leak: allocate with malloc, never call free. In long programs → out of memory. Detect: valgrind --leak-check=full ./prog. In embedded: critical — fixed RAM."},
+{m:"EC",s:"Dynamic Memory",q:"After free(ptr), do what?",o:["Call malloc again","Set ptr=NULL to prevent dangling pointer","Reallocate same memory","Nothing"],a:1,e:"After free(ptr): ptr becomes dangling (points to freed memory). Set ptr=NULL. Double-free (calling free twice) is undefined behavior. Always pair malloc with free."},
+{m:"EC",s:"Dynamic Memory",q:"realloc(ptr, newSize) does?",o:["Allocates new, leaves old","Resizes heap block — may move to new location, copies existing data","Frees and clears","Only shrinks"],a:1,e:"realloc: resize block. May move if can't expand in place (copies data). Returns new pointer. Usage: p=realloc(p,newSize); if(!p){/* old ptr already freed, handle error */}."},
+{m:"EC",s:"Structures",q:"Access struct member via pointer ptr?",o:["ptr.member","*ptr.member","ptr->member","&ptr.member"],a:2,e:"Arrow (->): ptr->member ≡ (*ptr).member. Use dot (.) for struct variable, arrow (->) for struct pointer. Rule: pointer → arrow, variable → dot."},
+{m:"EC",s:"Structures",q:"sizeof(struct{char c; int i;}) = ?",code:"struct S{ char c; int i; };",o:["5","8","4","6"],a:1,e:"char(1) + 3 padding bytes + int(4) = 8. int aligns to 4-byte boundary, so 3 padding bytes added after char. Use __attribute__((packed)) to remove padding."},
+{m:"EC",s:"Structures",q:"What is structure padding?",o:["Compressing data","Extra bytes added by compiler between members for alignment — performance optimization","Array of structs","Bit operations on struct"],a:1,e:"Padding aligns each member to its natural boundary (int at 4-byte, double at 8-byte). Increases sizeof. Reorder members (largest first) to minimize padding. Use packed to eliminate."},
+{m:"EC",s:"Structures",q:"Bit-field in struct?",o:["Array of bits","Member with specified bit width: unsigned mode:3 occupies 3 bits — saves space","Pointer to bit","Bit array type"],a:1,e:"struct { unsigned int mode:2; unsigned int flag:1; unsigned int reserved:5; }; Total 8 bits. Used for hardware register mapping, protocol headers, memory optimization in embedded."},
+{m:"EC",s:"Structures",q:"What is a nested structure?",o:["Struct with pointers","Struct containing another struct as member","Recursive struct","Struct with functions"],a:1,e:"struct Address{char city[20];}; struct Person{char name[20]; struct Address addr;}; Access: p.addr.city. Common for complex data modeling."},
+{m:"EC",s:"Unions",q:"sizeof(union{int i; double d; char c;}) = ?",code:"union U { int i; double d; char c; };",o:["13","8","4","1"],a:1,e:"Union size = largest member. double=8 bytes. All members share same 8 bytes. Writing to one member affects what others read. Only one member valid at a time."},
+{m:"EC",s:"Unions",q:"Main embedded use of union?",o:["Speed","Type-punning: view same bytes as different types (float as byte array for serialization)","Multiple simultaneous values","String storage"],a:1,e:"union{float f; uint8_t b[4];} u; u.f=3.14; then u.b[0..3] gives individual bytes of float. Used: protocol serialization, register mapping, type reinterpretation."},
+{m:"EC",s:"File Handling",q:"fopen mode to open for append?",o:["\"r\"","\"w\"","\"a\"","\"r+\""],a:2,e:"\"a\": appends to existing, creates if missing, pointer at end. \"w\" truncates. \"r\" read-only. \"r+\" read+write existing. \"w+\" read+write (truncates). \"a+\" read+append."},
+{m:"EC",s:"File Handling",q:"fopen() returns?",o:["int fd","FILE* — NULL on failure (always check!)","Boolean","File size"],a:1,e:"FILE *fp=fopen(\"data.txt\",\"r\"); ALWAYS check: if(fp==NULL){perror(\"fopen\"); exit(1);} FILE is opaque type managed by stdio. Close with fclose(fp)."},
+{m:"EC",s:"File Handling",q:"fseek(fp, 0, SEEK_END) does?",o:["Delete file","Seek to end of file (use ftell() after to get size)","Seek to beginning","Close file"],a:1,e:"SEEK_END: from end of file. fseek+ftell=file size. SEEK_SET: from beginning. SEEK_CUR: from current. rewind(fp) = fseek(fp,0,SEEK_SET). Binary files need SEEK_SET."},
+{m:"EC",s:"File Handling",q:"Which writes formatted text to file?",o:["fwrite()","fputc()","fprintf()","write()"],a:2,e:"fprintf(fp,\"Count: %d\\n\",n): writes formatted text. fwrite: binary data. fputc: single char. fputs: string. printf→stdout = fprintf(stdout,...). ferror() checks write errors."},
+{m:"EC",s:"Preprocessor",q:"#define MAX(a,b) ((a)>(b)?(a):(b)). MAX(3+1, 4) = ?",code:"#define MAX(a,b) ((a)>(b)?(a):(b))\nMAX(3+1, 4)",o:["4","5","7","Error"],a:0,e:"Textual substitution: ((3+1)>(4)?(3+1):(4))=(4>4?4:4)=4. Parentheses around args prevent precedence bugs. Without: MAX(2+1,2) → 2+1>2?2+1:2 = 3>2?3:2 = 3. Correct."},
+{m:"EC",s:"Preprocessor",q:"#ifndef in a header guard means?",o:["If macro is defined","If macro NOT defined — include code, preventing double inclusion","Include next file","Undefine macro"],a:1,e:"#ifndef MY_H / #define MY_H / ...content... / #endif. First include: MY_H not defined → define and include. Second include: MY_H defined → skip entire block. Prevents redefinition errors."},
+{m:"EC",s:"Preprocessor",q:"#include <stdio.h> vs #include \"myfile.h\"?",o:["Same","<>: system include dirs. \"\": current directory first, then system","<> is C++","\"\" is slower"],a:1,e:"<>: search compiler's system include path (standard headers). \"\": search current directory first, then include path (project headers). Use <> for stdlib, \"\" for your own headers."},
+{m:"EC",s:"Preprocessor",q:"What is the stringification operator # in macros?",o:["Comment","Converts macro argument to string literal: #define SHOW(x) #x → SHOW(hello)=\"hello\"","Preprocessor if","Header guard"],a:1,e:"#define DEBUG(x) printf(#x\"=%d\\n\",x) → DEBUG(count)→printf(\"count=%d\\n\",count). Converts argument NAME to string. Useful for debugging macros."},
+{m:"EC",s:"Enum & Typedef",q:"enum{RED,GREEN,BLUE}; GREEN = ?",o:["0","1","2","3"],a:1,e:"Default: RED=0, GREEN=1, BLUE=2. Custom: enum{LOW=1,MED=5,HIGH=10}. Enum provides named constants with type checking, unlike #define which is just text substitution."},
+{m:"EC",s:"Enum & Typedef",q:"enum{RESET=1,RUNNING,DONE}; DONE = ?",code:"enum State{RESET=1, RUNNING, DONE};",o:["1","2","3","0"],a:2,e:"RESET=1 explicit. RUNNING=RESET+1=2, DONE=RUNNING+1=3. Auto-increments from last specified value."},
+{m:"EC",s:"Enum & Typedef",q:"typedef unsigned int uint32; then?",o:["Error","uint32 is alias for unsigned int — completely interchangeable","Only in structs","Requires cast"],a:1,e:"typedef creates alias. uint32 and unsigned int are same type. Improves readability. Common: typedef struct Node Node; — avoids writing 'struct' every time."},
+{m:"EC",s:"Enum & Typedef",q:"typedef void (*Callback)(int); declares?",o:["void function","Type alias 'Callback' for pointer to function taking int, returning void","void pointer","Error"],a:1,e:"Callback is now a type: pointer to void function(int). Usage: Callback cb=myFunc; cb(42); Cleaner than: void (*cb)(int)=myFunc; each time."},
+{m:"EC",s:"GDB",q:"GDB: set breakpoint at function main?",o:["stop main","break main","pause main","halt main"],a:1,e:"GDB: 'break main' or 'b main'. 'b file.c:25' for line 25. 'b func' for function entry. 'watch x' breaks when x changes. 'info breakpoints' lists all. 'delete 1' removes breakpoint 1."},
+{m:"EC",s:"GDB",q:"GDB 'next' vs 'step'?",o:["Same","next: step OVER function calls. step: step INTO function body","step is faster","next enters functions"],a:1,e:"'next'(n): execute next source line, treat function calls as single step. 'step'(s): enter function body. 'finish': run until current function returns. 'continue'(c): run to next breakpoint."},
+{m:"EC",s:"GDB",q:"Segmentation fault is caused by?",o:["Slow code","Accessing invalid memory: NULL pointer, freed memory, out-of-bounds, stack overflow","Compile error","Wrong type"],a:1,e:"SIGSEGV: OS kills program for illegal memory access. In GDB: run until fault, type 'bt' (backtrace) to see call stack. Common causes: NULL deref, buffer overflow, use-after-free."},
+{m:"EC",s:"GDB",q:"'undefined reference to foo' is?",o:["Compile error","Linker error — function declared but definition not linked","Runtime error","Preprocessor error"],a:1,e:"Linker error: prototype exists but .c file or library with definition not provided. Fix: gcc main.c foo.c -o app, or add library: gcc main.c -lm for math.h functions."},
+{m:"EC",s:"Advanced C",q:"volatile in embedded C?",o:["Speed up","Prevent compiler from optimizing accesses — value may change unexpectedly (hardware reg, ISR)","Make constant","Allocate in flash"],a:1,e:"volatile: every read/write goes to memory, no caching in register. Use for: hardware-mapped registers (GPIO_ODR), ISR-shared flags, variables modified by hardware. Example: volatile uint32_t *GPIO_ODR=(uint32_t*)0x40020014;"},
+{m:"EC",s:"Advanced C",q:"uint32_t vs unsigned int?",o:["Same always","uint32_t from <stdint.h>: exactly 32 bits on ALL platforms. unsigned int: size varies (2 or 4 bytes)","uint32_t is signed","unsigned int newer"],a:1,e:"Fixed-width types (uint8_t, int16_t, uint32_t, int64_t): exact width guaranteed. Use in embedded for registers, protocols, struct packing. Platform-agnostic and self-documenting."},
+{m:"EC",s:"Advanced C",q:"const int *p vs int * const p?",o:["Same","const int *p: data read-only (can't modify *p). int *const p: pointer read-only (can't change p)","const int *p faster","No difference"],a:1,e:"const int *p: data const, pointer can change. int *const p: pointer const, data can change. const int *const p: both const. Use in function params to show what won't be modified."},
+{m:"EC",s:"Advanced C",q:"assert(condition) does?",o:["Print message","Debug check: if false, print error with file/line and abort. Disabled with -DNDEBUG","Always terminate","Log to file"],a:1,e:"assert(ptr!=NULL): in debug, if ptr==NULL → prints assertion failed + file/line → aborts. -DNDEBUG disables all asserts for release build. Never use for runtime error handling."},
+{m:"EC",s:"Advanced C",q:"Endianness in embedded?",o:["CPU speed","Byte order in multi-byte values: little-endian (LSB first, ARM default) vs big-endian (MSB first, network)","Memory alignment","Cache policy"],a:1,e:"ARM: little-endian. 0x12345678 stored as 78 56 34 12 at increasing addresses. Network=big-endian. Critical when parsing sensor data or protocol packets across different architectures."},
+{m:"EC",s:"Advanced C",q:"argc in main(int argc, char *argv[]) is?",o:["Array of argument strings","Count of command-line arguments INCLUDING program name","Size of argv buffer","Index of first argument"],a:1,e:"argc=count. argv[0]=program name/path, argv[1]=first argument. Check argc>1 before accessing argv[1]. Iterate: for(int i=1;i<argc;i++) process(argv[i]);"},
+// ════════════════════════════════════════════════════
+// DATA STRUCTURES & ALGORITHMS — 110 Questions
+// ════════════════════════════════════════════════════
+{m:"DSA",s:"Introduction",q:"What is a data structure?",o:["A C library","Organized way to store and access data with defined operations — choice determines efficiency","Database table","Algorithm name"],a:1,e:"DS: organized collection + operations. Array→random access, Stack→LIFO, Queue→FIFO, Tree→hierarchy, Graph→network. Choosing correct DS is key to efficient algorithms."},
+{m:"DSA",s:"Introduction",q:"Linear vs non-linear data structure?",o:["Same","Linear: sequential elements (Array,Stack,Queue,LL). Non-linear: hierarchical/network (Tree,Graph)","Linear is faster","Non-linear uses less memory"],a:1,e:"Linear: single traversal path, elements in sequence. Non-linear: multiple paths, hierarchy or graph connections. Linear: simpler. Non-linear: more powerful for complex relationships."},
+{m:"DSA",s:"Introduction",q:"What is an ADT (Abstract Data Type)?",o:["A C struct","Data type defined by operations and behavior, NOT its implementation","Hardware register type","Assembly language type"],a:1,e:"ADT: mathematical abstraction. Stack ADT: push, pop, peek, isEmpty — implemented with array OR linked list. Users don't care HOW, only WHAT operations exist."},
+{m:"DSA",s:"Complexity",q:"O(1) means?",o:["One operation","Constant time — same regardless of input size n","Very fast always","Optimal always"],a:1,e:"O(1): same time for n=10 or n=10,000,000. Examples: array[i] access, stack push/pop, hash table average. Not just one step — could be 1000 constant steps, still O(1)."},
+{m:"DSA",s:"Complexity",q:"Time complexity of nested loops each running n times?",code:"for(i=0;i<n;i++)\n  for(j=0;j<n;j++)\n    // O(1) work",o:["O(n)","O(n+n)","O(n²)","O(2n)"],a:2,e:"Outer n × inner n = n² operations = O(n²). Three nested loops = O(n³). Key: multiply complexities for nested loops, add for sequential code."},
+{m:"DSA",s:"Complexity",q:"Binary search time complexity?",o:["O(n)","O(log n)","O(n log n)","O(1)"],a:1,e:"Each step halves search space. log₂(1,000,000)≈20. Recurrence: T(n)=T(n/2)+1 → O(log n) by Master Theorem. MUST be sorted array."},
+{m:"DSA",s:"Complexity",q:"Best to worst Big-O order?",o:["O(n)>O(log n)>O(1)","O(1)<O(log n)<O(n)<O(n log n)<O(n²)<O(2^n)","O(2^n)<O(n²)<O(n)","All equal"],a:1,e:"O(1) constant → O(log n) logarithmic → O(n) linear → O(n log n) linearithmic → O(n²) quadratic → O(2^n) exponential. Algorithms beyond O(n log n) impractical for large n."},
+{m:"DSA",s:"Complexity",q:"Big-O gives which bound?",o:["Ω lower bound","Θ tight bound","O upper bound — algorithm grows NO FASTER than this","o strict upper"],a:2,e:"O: upper bound (worst case guarantee). Ω: lower bound (best case). Θ: tight bound (both O and Ω). O(n²) means worst case is quadratic — could be better in practice."},
+{m:"DSA",s:"Complexity",q:"Merge sort time in ALL cases?",o:["O(n) best","O(n²) worst","O(n log n) always — best, average, worst","O(log n)"],a:2,e:"Merge sort: always O(n log n). Divide log n levels, merge O(n) per level. Unlike quicksort: O(n²) worst case. Merge sort preferred when guaranteed performance needed."},
+{m:"DSA",s:"Complexity",q:"What is Omega (Ω) notation?",o:["Upper bound","Lower bound — algorithm takes AT LEAST this long (best case guarantee)","Average case","Exact count"],a:1,e:"Ω: lower bound. Binary search is Ω(1) — best case is one comparison (first middle is answer). Selection sort is Ω(n²) — always n² even in best case."},
+{m:"DSA",s:"Complexity",q:"What is Theta (Θ) notation?",o:["Upper bound","Lower bound","TIGHT bound — exactly this growth rate (O and Ω simultaneously)","Exact count"],a:2,e:"Θ(f(n)): grows exactly like f(n). Merge sort is Θ(n log n). Insertion sort is Θ(n) best case but Θ(n²) worst — so NOT Θ(n) overall."},
+{m:"DSA",s:"Arrays",q:"Time to access arr[i] in array?",o:["O(n)","O(log n)","O(1) — direct address calculation","O(i)"],a:2,e:"address = base + i × sizeof(element). Direct computation, no traversal. O(1) regardless of i or array size. Tradeoff: O(n) insert/delete at front (shifting needed)."},
+{m:"DSA",s:"Arrays",q:"Insert at beginning of array of n elements?",o:["O(1)","O(log n)","O(n) — shift all elements right","O(n²)"],a:2,e:"Must shift all n elements right by 1 position, then insert at index 0. O(n). Insert at end (if space): O(1). This is why linked lists are better for frequent insertions at front."},
+{m:"DSA",s:"Arrays",q:"Sliding window technique?",o:["Sorting technique","Find max/min subarray of size k in O(n) — maintain window, add new, remove old element","Graph traversal","Hash computation"],a:1,e:"Sliding window: compute first k elements, then slide: add arr[i], remove arr[i-k]. O(n) total vs O(n*k) brute force. Used for: max sum subarray of size k, string matching."},
+{m:"DSA",s:"Arrays",q:"Two-pointer technique?",o:["Sorting","O(n) solution for sorted array problems — one pointer each end moving toward center","Graph traversal","Hashing"],a:1,e:"Two pointers: left=0, right=n-1. If arr[l]+arr[r]>target: r--. If <target: l++. If ==target: found. O(n) vs O(n²) brute force. Used: two-sum, three-sum, palindrome check."},
+{m:"DSA",s:"Stack",q:"Stack PUSH and POP complexity?",o:["O(n)","O(log n)","O(1)","O(n²)"],a:2,e:"O(1): only modify top of stack — no traversal. Peek/top also O(1). Space: O(n) for n elements. Stack is ideal for LIFO scenarios."},
+{m:"DSA",s:"Stack",q:"Stack applications?",o:["Print queue","Function call stack, browser back, undo, DFS, balanced brackets, expression parsing","CPU scheduling","File buffering"],a:1,e:"Stack: 1)Call stack (recursion, return addresses). 2)Browser back/forward. 3)Undo/redo in editors. 4)DFS traversal. 5)Check balanced brackets. 6)Convert infix→postfix. 7)Evaluate postfix expressions."},
+{m:"DSA",s:"Stack",q:"Stack overflow vs underflow?",o:["Same","Overflow: push to FULL stack. Underflow: pop from EMPTY stack","Overflow is memory error","Underflow faster"],a:1,e:"Stack overflow: push when full (array) or heap exhausted (LL). Also: too many recursive calls (call stack overflow). Stack underflow: pop/peek from empty stack. Always check bounds."},
+{m:"DSA",s:"Stack",q:"Evaluate postfix '2 3 4 * +'?",o:["14","20","24","Error"],a:0,e:"Postfix (stack): 2→push. 3→push. 4→push. *: pop 4,3 → push 3×4=12. +: pop 12,2 → push 2+12=14. Result: 14. Postfix needs no precedence rules — just a stack."},
+{m:"DSA",s:"Stack",q:"Check balanced parentheses '([{}])' using stack?",o:["Not balanced","Balanced — push opens, pop and verify match on each close","Error","Depends"],a:1,e:"Algorithm: open bracket('([{') → push. Close bracket(')]}') → if stack empty OR top doesn't match → unbalanced. End: balanced only if stack is empty. '([{}])': all match → balanced."},
+{m:"DSA",s:"Queue",q:"Queue order?",o:["LIFO","FIFO — First In First Out","Random","Priority"],a:1,e:"Queue: enqueue adds to rear, dequeue removes from front. First in = first out. Used: CPU scheduling (processes wait in queue), print spooling, BFS, message buffers, task queues."},
+{m:"DSA",s:"Queue",q:"Linear array queue problem after many operations?",o:["Too slow","Front moves right — rear reaches end even with empty space at front (false full condition)","Overflow","No problem"],a:1,e:"Linear queue: after n enqueue/dequeue cycles, rear reaches array end even if front has moved. Solution: circular queue wraps rear to 0 when it reaches end, reusing freed space."},
+{m:"DSA",s:"Queue",q:"Circular queue FULL condition (one slot wasted)?",o:["rear==front","(rear+1)%size==front","rear==size","front==0"],a:1,e:"Full: (rear+1)%size==front. Empty: rear==front. One slot kept empty to distinguish full from empty without extra flag. This wastes one slot but simplifies logic."},
+{m:"DSA",s:"Queue",q:"Circular queue: size=6, front=4, rear=2. Count?",o:["2","3","4","6"],a:2,e:"Count=(rear-front+size)%size=(2-4+6)%6=4. Circular formula handles wrap-around correctly."},
+{m:"DSA",s:"Queue",q:"BFS uses which data structure?",o:["Stack","Queue (FIFO)","Priority Queue","Array"],a:1,e:"BFS: enqueue start, while queue not empty: dequeue, process, enqueue unvisited neighbors. FIFO ensures level-by-level traversal. DFS uses stack (or recursion = implicit stack)."},
+{m:"DSA",s:"Queue",q:"Deque (double-ended queue)?",o:["Two separate queues","Insert/delete at BOTH front and rear — more flexible than stack or queue","Priority insertion","Sorted always"],a:1,e:"Deque: push_front, push_back, pop_front, pop_back. Can implement both stack (push/pop_back) and queue (push_back/pop_front). Used for: sliding window problems, palindrome check."},
+{m:"DSA",s:"Linked List",q:"SLL node contains?",o:["Only data","Only pointer","Data + next pointer to next node","Data + prev + next"],a:2,e:"struct Node{int data; struct Node *next;}. Last node: next=NULL. DLL adds prev pointer. CLL: last node's next=head. SLL: simplest, one-way traversal only."},
+{m:"DSA",s:"Linked List",q:"Time to search in SLL?",o:["O(1)","O(log n)","O(n) — traverse from head","O(n²)"],a:2,e:"No random access — must traverse: start at head, follow next. Worst case: end or not found → O(n). Use arrays for frequent random access, linked lists for frequent insert/delete."},
+{m:"DSA",s:"Linked List",q:"Insert at HEAD of SLL?",o:["O(n)","O(log n)","O(1) — just update head pointer","O(n²)"],a:2,e:"Head insert: new_node->next=head; head=new_node; Two operations regardless of list size → O(1). Tail insert without tail pointer: O(n) (traverse to end)."},
+{m:"DSA",s:"Linked List",q:"Floyd's cycle detection?",o:["Count nodes","Slow pointer (1 step) and fast pointer (2 steps) — if they meet, cycle exists. O(n), O(1)","Hash all visited","Sort and check"],a:1,e:"slow=head; fast=head; while(fast&&fast->next){slow=slow->next; fast=fast->next->next; if(slow==fast)return CYCLE;} return NO_CYCLE. Fast loops back in cycle, meets slow."},
+{m:"DSA",s:"Linked List",q:"Advantage of DLL over SLL?",o:["Less memory","Backward traversal + O(1) delete given pointer to node (update prev.next and next.prev)","Faster search","Thread safe"],a:1,e:"DLL: each node has prev+next. Backward traversal possible. Given pointer to node: delete in O(1) — no need to find previous (just update prev.next and next.prev). SLL delete: O(n)."},
+{m:"DSA",s:"Linked List",q:"In CLL, last->next points to?",o:["NULL","Itself","Head (first node)","Random"],a:2,e:"CLL: last node's next=head. Never reaches NULL during traversal. Detect end: check if curr->next==head. Used: round-robin scheduling, circular buffer, Josephus problem."},
+{m:"DSA",s:"Linked List",q:"Reverse SLL in O(n) O(1)?",o:["Create new list","Three pointers: prev=NULL,curr=head,next; iterate reversing links; new head=prev","Use stack","Not possible"],a:1,e:"Iterative: prev=NULL; curr=head; while(curr){next=curr->next; curr->next=prev; prev=curr; curr=next;} head=prev; O(n) time, O(1) space. Clean and efficient."},
+{m:"DSA",s:"Searching",q:"Linear search worst case?",o:["O(1)","O(log n)","O(n)","O(n²)"],a:2,e:"Check each element sequentially. Worst: element at end or not present → check all n → O(n). Best: O(1) (first element). Works on unsorted arrays. Use when n is small or unsorted."},
+{m:"DSA",s:"Searching",q:"Binary search requires?",o:["Heap structure","Sorted array","Even size array","Circular array"],a:1,e:"Binary search REQUIRES sorted array. Checks middle, discards half each step. O(log n). Cannot apply to unsorted — use linear search or sort first (O(n log n) total then)."},
+{m:"DSA",s:"Searching",q:"Binary search on 1024 elements: max comparisons?",o:["1024","512","10","100"],a:2,e:"log₂(1024)=10. Each comparison halves: 1024→512→256→128→64→32→16→8→4→2→1. Maximum 10 comparisons. Dramatic vs linear search's 1024 worst case."},
+{m:"DSA",s:"Searching",q:"Safe mid calculation in binary search?",o:["(low+high)/2","low+(high-low)/2 — avoids integer overflow","(low*high)/2","None"],a:1,e:"(low+high) can overflow for large indices when low+high>INT_MAX. Safe: mid=low+(high-low)/2. Gives same result without overflow. Or: low+((high-low)>>1)."},
+{m:"DSA",s:"Searching",q:"Interpolation search best for?",o:["Any array","Uniformly distributed sorted data — estimates position, O(log log n) average","Small arrays only","Reverse sorted"],a:1,e:"Interpolation: pos=low+(key-arr[low])/(arr[high]-arr[low])*(high-low). Uniform distribution: O(log log n) avg. Worst case (exponential dist): O(n). Smart binary search variant."},
+{m:"DSA",s:"Hashing",q:"Good hash function property?",o:["Always h(k)=0","Uniform distribution — maps keys evenly across all buckets, minimizes collisions","h(k)=k always","Random output"],a:1,e:"Good hash: fast to compute, uniform distribution, deterministic, avalanche effect (small input change → large output change). h(k)=k%m with prime m gives good distribution."},
+{m:"DSA",s:"Hashing",q:"Load factor α = n/m. When α > 0.75?",o:["Performance improves","More collisions → O(1) average degrades. Rehash: double table, reinsert all","Auto-shrinks","No effect"],a:1,e:"α=elements/slots. High α → long chains (chaining) or many probes (open addressing) → slow. Rehash when α>0.75 (Java HashMap). O(n) rehash but amortized O(1) per insert."},
+{m:"DSA",s:"Hashing",q:"Separate chaining?",o:["Check next slot","Each bucket has linked list of all keys hashing there — append on collision","Double table","Reject duplicates"],a:1,e:"Chaining: each slot is a linked list. On collision, append to list. Search: hash → traverse list. Handles high load factor well. Used: Java HashMap, Python dict."},
+{m:"DSA",s:"Hashing",q:"Linear probing?",o:["Use chaining","Try h(k)+1, h(k)+2, ... mod m until empty slot — open addressing","Second hash function","Immediate resize"],a:1,e:"Linear probing: if h(k) occupied, try h(k)+1, +2... Causes primary clustering (long runs of occupied slots). Quadratic probing (h(k)+i²) and double hashing reduce clustering."},
+{m:"DSA",s:"Hashing",q:"Average hash table search?",o:["O(n)","O(log n)","O(1)","O(n log n)"],a:2,e:"Good hash + low α → O(1) average. Direct index computation, no traversal needed. Worst case (all same bucket): O(n). Best DS for key-value lookup in practice."},
+{m:"DSA",s:"Hashing",q:"Double hashing?",o:["Two separate tables","Two hash functions: h(k,i)=(h1(k)+i*h2(k))%m — reduces clustering vs linear probing","Double chains","Two probes only"],a:1,e:"Double hashing: probe sequence depends on key via h2. h2(k) must never be 0 and be coprime to m (prime m helps). Better distribution than linear/quadratic probing."},
+{m:"DSA",s:"Sorting",q:"Bubble sort after k passes?",o:["First k sorted","Last k elements sorted (largest k values in final positions)","Middle k sorted","Random k sorted"],a:1,e:"Each pass bubbles the largest remaining element to end. After k passes: last k positions correctly placed. Optimization: if no swaps in a pass, array is sorted → exit early."},
+{m:"DSA",s:"Sorting",q:"Optimized bubble sort best case?",o:["O(n²)","O(n log n)","O(n) — sorted array, one pass, no swaps → stop early","O(1)"],a:2,e:"With swapped flag: if no swaps in entire pass → array sorted → exit. Already-sorted: one O(n) pass, zero swaps → done. Without optimization: always O(n²) even if sorted."},
+{m:"DSA",s:"Sorting",q:"Selection sort in all cases?",o:["O(n) best case","O(n log n) average","O(n²) always — no optimization possible","O(1)"],a:2,e:"Selection sort: n-1 passes, each scans remaining unsorted portion for minimum. Always O(n²). No early termination possible. Advantage: minimum number of swaps (≤n-1), good for flash memory."},
+{m:"DSA",s:"Sorting",q:"Insertion sort best for?",o:["Large random arrays","Small or nearly sorted arrays — O(n) best case, O(n²) worst","Reverse sorted","Many duplicates always"],a:1,e:"Insertion sort: O(n) best (nearly sorted, few shifts), O(n²) worst (reverse sorted). In practice fastest for n<20. Used as base case in Timsort (Python's sort) and IntroSort."},
+{m:"DSA",s:"Sorting",q:"Merge sort recurrence?",o:["T(n)=T(n-1)+n","T(n)=2T(n/2)+n → O(n log n)","T(n)=T(n/2)+1","T(n)=4T(n/2)+n"],a:1,e:"Divide into 2 halves: 2T(n/2). Merge step: O(n). By Master Theorem (Case 2): O(n log n). Always O(n log n) regardless of input — guaranteed performance."},
+{m:"DSA",s:"Sorting",q:"Merge sort space complexity?",o:["O(1)","O(log n)","O(n) — auxiliary array for merge step","O(n log n)"],a:2,e:"Merge step needs O(n) auxiliary array. Overall space: O(n). Unlike heapsort/quicksort which are in-place. Main disadvantage of merge sort. Bottom-up merge sort avoids recursion stack."},
+{m:"DSA",s:"Sorting",q:"Quicksort worst case input (first-element pivot)?",o:["Random array","Already sorted or reverse sorted → O(n²)","Duplicates only","Single element"],a:1,e:"Sorted + first pivot: pivot always min/max → partition 0 vs n-1. T(n)=T(n-1)+n → O(n²). Fix: random pivot, median-of-three, or introsort (quicksort + heapsort fallback at depth limit)."},
+{m:"DSA",s:"Sorting",q:"Stable AND O(n log n) always?",o:["Quicksort","Heapsort","Merge sort","Shell sort"],a:2,e:"Merge sort: stable (equal elements maintain order) + O(n log n) always. Quicksort: not stable (usually), O(n²) worst. Heapsort: not stable, O(n log n). Stability matters for multi-key sorting."},
+{m:"DSA",s:"Sorting",q:"Build max-heap from n elements?",o:["O(n log n)","O(n) — Floyd's bottom-up heapify","O(n²)","O(log n)"],a:1,e:"Floyd's method: start from last internal node, sift down toward root. Most nodes near bottom need few swaps. Mathematical sum converges to O(n). Naïve n insertions = O(n log n)."},
+{m:"DSA",s:"Sorting",q:"In-place sorting algorithms?",o:["Merge sort, radix sort","Quicksort, heapsort, insertion, bubble, selection sort — O(1) extra space","Only bubble sort","Only merge sort"],a:1,e:"In-place: no extra array needed. Quicksort: O(log n) stack recursion. Heapsort: O(1). Insertion/Bubble/Selection: O(1). NOT in-place: merge sort O(n), counting sort O(k), radix sort O(n+k)."},
+{m:"DSA",s:"Trees",q:"BST property?",o:["Any order","ALL keys in left subtree < node key < ALL keys in right subtree (recursive)","Only immediate children","Balanced always"],a:1,e:"BST: for every node N, ALL keys in N's left subtree < N.key < ALL keys in N's right subtree. Must hold recursively for all nodes, not just parent-child pairs."},
+{m:"DSA",s:"Trees",q:"BST search: balanced vs skewed?",o:["Always O(n)","Balanced: O(log n). Skewed (all left or right children): O(n)","Always O(log n)","O(1)"],a:1,e:"Balanced BST height=O(log n) → O(log n) search. Skewed: insertions in sorted order create degenerate tree (like linked list), height=n → O(n) search. Fix: use AVL or Red-Black tree."},
+{m:"DSA",s:"Trees",q:"In-order traversal of BST?",o:["Pre-order result","Reverse sorted","Ascending sorted order (Left→Root→Right)","Level-order"],a:2,e:"In-order (L→Root→R) visits BST nodes in ascending sorted order. Used for: print sorted BST, range queries, verify BST property, tree sort."},
+{m:"DSA",s:"Trees",q:"Pre-order traversal?",o:["L→Root→R","Root→L→R","L→R→Root","R→Root→L"],a:1,e:"Pre-order: Root→Left→Right. Used: copy tree, serialize tree, prefix expression evaluation. Post-order (L→R→Root): deletion, postfix, directory space calculation."},
+{m:"DSA",s:"Trees",q:"Level-order traversal uses?",o:["Stack","Queue — enqueue root, dequeue, process, enqueue children","Recursion only","Array with index"],a:1,e:"Level-order (BFS): queue. Enqueue root. While not empty: dequeue node, print, enqueue left and right children. Result: top-to-bottom, left-to-right."},
+{m:"DSA",s:"Trees",q:"AVL balance factor?",o:["Height of tree","height(left) - height(right) — must be -1, 0, or +1 for every node","Node count","Depth"],a:1,e:"BF=height(left)-height(right). AVL: |BF|≤1 everywhere. BF>1: left-heavy → right rotation (or left-right). BF<-1: right-heavy → left rotation (or right-left)."},
+{m:"DSA",s:"Trees",q:"AVL tree height guarantee?",o:["O(n)","O(log n) — strict balance ensures logarithmic height","O(n²)","O(√n)"],a:1,e:"AVL: max height ≈ 1.44×log₂(n+2). Guarantees O(log n) for search/insert/delete. Stricter than Red-Black (height ≤ 2×log n) → more rotations but faster lookup."},
+{m:"DSA",s:"Trees",q:"Red-Black tree height?",o:["Exactly log n","At most 2×log(n+1) — O(log n) all operations","O(n)","Same as AVL"],a:1,e:"RB: height ≤ 2×log₂(n+1). Looser than AVL but fewer rotations on insert/delete (at most 2 for insert). Used: Linux CFS scheduler, Java TreeMap, C++ std::map."},
+{m:"DSA",s:"Trees",q:"Minimum nodes in AVL tree of height 3?",o:["4","6","7","8"],a:2,e:"N(h)=N(h-1)+N(h-2)+1. N(0)=1, N(1)=2, N(2)=4, N(3)=7. Fibonacci-like growth. Maximum nodes for height h: 2^(h+1)-1."},
+{m:"DSA",s:"Trees",q:"Post-order for tree deletion?",o:["Pre-order","In-order","Post-order — children before parent, no dangling pointers","Level-order"],a:2,e:"Post-order (L→R→Root): process children before parent. Tree deletion: free left subtree, free right subtree, then free node. Pre-order deletion would lose access to children."},
+{m:"DSA",s:"Trees",q:"Maximum nodes at level k (root = level 0)?",o:["k","2k","2^k","k!"],a:2,e:"Level 0: 1=2⁰. Level 1: max 2=2¹. Level k: max 2^k (all nodes have 2 children). Total max nodes for height h: 2^(h+1)-1."},
+{m:"DSA",s:"Trees",q:"BST insert 5,3,7,1,4: in-order traversal?",o:["5 3 7 1 4","1 3 4 5 7","7 5 4 3 1","3 1 5 4 7"],a:1,e:"In-order BST always gives sorted ascending: 1,3,4,5,7. Tree structure: 5(root), 3(left), 7(right), 1(left of 3), 4(right of 3)."},
+// ════════════════════════════════════════════════════
+// EMBEDDED OPERATING SYSTEMS — 110 Questions
+// ════════════════════════════════════════════════════
+{m:"OS",s:"OS Basics",q:"What is an Operating System?",o:["Hardware chip","Software managing hardware resources + providing system call API for applications","Programming language","Network protocol"],a:1,e:"OS: manages CPU (scheduling), memory (paging/virtual memory), storage (file system), I/O (device drivers). Provides system call API for user programs. Examples: Linux, Windows, FreeRTOS."},
+{m:"OS",s:"OS Basics",q:"Four types of OS?",o:["Simple, Complex, Smart, Dumb","Batch, Time-sharing, Distributed, Real-Time","Client, Server, Cloud, Mobile","Fast, Slow, Hard, Soft"],a:1,e:"Batch: process jobs in batches, no interaction. Time-sharing: multiple users share CPU via scheduling (Linux desktop). Distributed: networked computers cooperate. Real-Time: guaranteed response time (FreeRTOS, QNX)."},
+{m:"OS",s:"OS Basics",q:"Kernel mode vs User mode?",o:["Same privilege","Kernel: full hardware access, all CPU instructions. User: restricted, protected from hardware","Kernel slower","User has more memory"],a:1,e:"Kernel mode: all CPU instructions, direct hardware control, OS runs here. User mode: restricted instruction set, no direct I/O. Switch: system call (trap instruction), hardware interrupt, exception."},
+{m:"OS",s:"OS Basics",q:"OS layers from innermost to outermost?",o:["Apps→Shell→Kernel→Hardware","Hardware→Kernel→Shell→File System→Device Drivers→Apps","BIOS→Driver→Kernel→App","CPU→OS→App→User"],a:1,e:"Hardware → Kernel (core OS: scheduling, memory, I/O) → Shell (command interpreter) → File System → Device Drivers → User Applications. Each layer serves the layer above."},
+{m:"OS",s:"OS Basics",q:"What is a shell?",o:["Hardware component","Command interpreter: accepts user commands, invokes OS services — bash, sh, zsh","Memory manager","File system component"],a:1,e:"Shell: bash, sh, zsh, PowerShell. Interprets commands, forks child processes, sets up pipes/redirects. Also a scripting language. Bridge between user and kernel."},
+{m:"OS",s:"OS Basics",q:"System call vs library call?",o:["Same thing","System call: switches to kernel mode (expensive). Library call: stays in user mode (fast)","Library calls deprecated","System calls deprecated"],a:1,e:"System call: trap instruction → kernel mode → privileged operation → return to user. Library call: pure user-space function. printf()=library call → internally uses write()=system call. strace shows system calls."},
+{m:"OS",s:"OS Admin",q:"Linux boot sequence?",o:["App→Kernel→BIOS","BIOS/UEFI→GRUB→Kernel→init/systemd→Services→Login","Kernel→BIOS→Shell","Direct app boot"],a:1,e:"Power ON → POST → BIOS/UEFI (hardware init) → GRUB (bootloader, loads kernel) → Linux kernel init → init/systemd (PID 1) → start services → getty → login prompt."},
+{m:"OS",s:"OS Admin",q:"PID 1 in Linux?",o:["First user process","init or systemd — first process started by kernel, parent of all, never dies","Kernel itself","Root user ID"],a:1,e:"PID 1: init (traditional) or systemd (modern). Kernel creates it directly. Starts all other services. Adopts orphan processes. Cannot be killed with SIGKILL. Waits for zombie children."},
+{m:"OS",s:"Processes",q:"Five process states?",o:["Running and Stopped","New, Ready, Running, Waiting/Blocked, Terminated","On, Off, Wait, Kill, Done","Active and Inactive"],a:1,e:"New(creating)→Ready(waiting for CPU)→Running(on CPU)→Waiting(I/O or event)→Ready(event done)→Terminated(exited). Zombie: terminated but exit status not collected."},
+{m:"OS",s:"Processes",q:"PCB (Process Control Block) stores?",o:["Source code","PID, state, PC, registers, memory maps, open files, priority, accounting","Hardware config","Network settings"],a:1,e:"PCB: OS data structure per process. Contains: PID, parent PID, state, program counter, all CPU registers, page table base, open file table, signal handlers, priority, CPU time used."},
+{m:"OS",s:"Processes",q:"Context switch saves/restores?",o:["No overhead","Save current: PC+registers→PCB. Load next: PCB→PC+registers + TLB flush","Only stack","Only registers"],a:1,e:"Context switch: save 8-16 registers+PSW to PCB, update state, schedule next, load next PCB, flush TLB (expensive!), restore registers. ~1-10 microseconds. Overhead motivates reducing switch frequency."},
+{m:"OS",s:"Processes",q:"FCFS scheduling convoy effect?",o:["Fast processes first","Short processes wait behind long CPU-bound process — poor I/O utilization","All processes equal","No waiting"],a:1,e:"Convoy: many short I/O-bound processes queue behind one long CPU-bound process. CPU idle when long process does I/O, I/O idle when CPU processes. SJF reduces convoy effect."},
+{m:"OS",s:"Processes",q:"Round Robin quantum too small?",o:["Better response","Excessive context switch overhead — more switching than actual work","Starvation","Priority inversion"],a:1,e:"RR: quantum too small → context switch dominates. Too large → degrades to FCFS (poor response). Typical: 10-100ms. Balance: enough to do useful work, small enough for good response time."},
+{m:"OS",s:"Processes",q:"SJF minimizes?",o:["Max waiting time","Average waiting time — provably optimal among non-preemptive algorithms","Response time only","Context switches"],a:1,e:"SJF provably minimizes average waiting time. Problem: requires knowing burst time in advance (impossible in practice). Approximated with exponential average of past CPU bursts."},
+{m:"OS",s:"Processes",q:"fork() returns to parent?",o:["0","Child's PID (>0)","Parent's PID","-1"],a:1,e:"fork(): child PID to parent (>0), 0 to child, -1 on failure. Parent: use child PID with wait(). Child: use return value 0 to know it's the child. Creates near-identical copy of process."},
+{m:"OS",s:"Processes",q:"exec() after fork()?",o:["Creates another child","Replaces current process image with new program — same PID, new code/data/stack","Terminates parent","Forks again"],a:1,e:"fork()+exec(): standard pattern. fork(): create copy. exec(): replace image with new program. Shell does this for every command. exec() never returns on success."},
+{m:"OS",s:"Processes",q:"Zombie process?",o:["Malicious","Exited but exit status not collected by parent — stays in process table","High CPU usage","Background daemon"],a:1,e:"Zombie: process exited, PCB remains for parent to collect exit status via wait(). Parent must call wait()/waitpid() to remove it. If parent dies first: init adopts and reaps zombies."},
+{m:"OS",s:"Processes",q:"Orphan process?",o:["Process without files","Process whose parent died first — init (PID 1) adopts it","Zombie child","Background process"],a:1,e:"Orphan: parent died before child. Linux re-parents to init/systemd (PID 1). Init calls wait() for orphans — they don't become zombies. Different from zombie (child dies before parent waits)."},
+{m:"OS",s:"Processes",q:"4 Coffman deadlock conditions?",o:["Mutual exclusion, Hold-and-wait, No preemption, Circular wait — ALL must hold","Priority, Starvation, Timeout, Livelock","CPU, Memory, I/O, Network","Any one sufficient"],a:0,e:"All 4 must hold simultaneously: (1)Mutual exclusion: non-sharable resource. (2)Hold-and-wait: hold one, wait for another. (3)No preemption: can't forcibly take. (4)Circular wait. Break ANY one → no deadlock."},
+{m:"OS",s:"Processes",q:"Banker's algorithm?",o:["CPU scheduling","Deadlock avoidance — check if granting request leaves safe state (all can complete)","Memory compaction","File allocation"],a:1,e:"Before granting resource: simulate allocation, check if all processes can still complete (safe state). If safe: grant. If not: deny, process waits. Requires max resource needs in advance."},
+{m:"OS",s:"Processes",q:"Priority inversion?",o:["Wrong priority assignment","Low-priority holds resource needed by high-priority — high blocked by medium (indirectly)","Scheduling error","Priority overflow"],a:1,e:"Priority inversion: High-P waits for resource held by Low-P. Medium-P preempts Low-P. High-P effectively blocked by Medium-P. Fix: priority inheritance (Low-P gets High-P's priority while holding shared resource). Mars Pathfinder real bug!"},
+{m:"OS",s:"Synchronization",q:"Race condition?",o:["CPU speed issue","Outcome depends on timing of concurrent accesses to shared data — non-deterministic","Memory overflow","Disk error"],a:1,e:"Race: two threads both read count=5, both do count++, both write 6. Expected 7, got 6 (lost update). count++ is NOT atomic (read+add+write=3 steps). Fix: mutex, atomic operations."},
+{m:"OS",s:"Synchronization",q:"Mutex vs binary semaphore?",o:["Same","Mutex: only locking thread can unlock (ownership). Semaphore: any thread can signal","Semaphore faster","No difference"],a:1,e:"Mutex ownership: thread that calls lock must call unlock. Prevents accidental release by other thread. Binary semaphore: any thread can signal. Use mutex for mutual exclusion, semaphore for signaling."},
+{m:"OS",s:"Synchronization",q:"Counting semaphore initialized to 3?",o:["3 processes total","3 resources available — wait() decrements (blocks at 0), signal() increments","3 second timeout","Priority 3"],a:1,e:"sem_init(&s,0,3): three threads can proceed concurrently (e.g., 3 DB connections). sem_wait() blocks when count=0. sem_post() increments and wakes blocked thread. Binary semaphore: init to 1."},
+{m:"OS",s:"Synchronization",q:"Producer-Consumer: 3 sync objects needed?",o:["One mutex only","mutex (protect buffer) + empty semaphore (free slots) + full semaphore (items)","Two mutexes","One semaphore only"],a:1,e:"mutex: serialize buffer access. empty (init=N): counts free slots, producer waits here when buffer full. full (init=0): counts items, consumer waits here when buffer empty."},
+{m:"OS",s:"Synchronization",q:"Monitor vs mutex?",o:["Same","Monitor: high-level — encapsulates shared data + automatic mutex + condition variables (wait/notify)","Monitor is slower","Mutex has conditions too"],a:1,e:"Monitor: OOP-level sync. All shared data access through monitor methods (auto-locked). Has condition variables for wait/notify. Java synchronized=monitor. Higher abstraction than mutex."},
+{m:"OS",s:"Synchronization",q:"Spinlock vs mutex: use spinlock when?",o:["Always better","Wait time < context switch time — saves sleep/wake overhead, burns CPU during short wait","Only single core","Never use spinlock"],a:1,e:"Spinlock: while(!trylock()){} — burns CPU but avoids sleep/wake overhead (~microseconds). Good for: kernel code, very short critical sections, multicore. Mutex: sleeps thread, good for long waits."},
+{m:"OS",s:"IPC",q:"Anonymous pipe limitation?",o:["No limitation","Only between related processes sharing fd via fork() — no filesystem name","Very slow","Bidirectional only"],a:1,e:"pipe(fds): two fds, parent shares with child via fork(). Unrelated processes can't use it (no name, no path). For unrelated processes: FIFO (named pipe) or socket."},
+{m:"OS",s:"IPC",q:"FIFO advantage over pipe?",o:["Faster","Has filesystem pathname — unrelated processes can open it by name (mkfifo)","Bidirectional","No blocking"],a:1,e:"FIFO (named pipe): mkfifo('/tmp/myfifo',0666). Any process knowing path can open. Same semantics as pipe: unidirectional FIFO byte stream. Blocks on open until both reader AND writer open."},
+{m:"OS",s:"IPC",q:"Shared memory IPC is fastest because?",o:["Uses fast SSD","After setup, processes read/write directly — zero kernel involvement per operation, no data copying","Special hardware","Kernel optimized"],a:1,e:"shm_open()+mmap() once. Then: process A writes to address, process B reads same address. Zero copy, no syscall per operation. Fastest IPC. Must add synchronization (mutex/semaphore)."},
+{m:"OS",s:"IPC",q:"Message queue advantage over pipe?",o:["Faster","Typed messages — receiver can select by type, not just FIFO order. Persists until explicitly deleted","Bidirectional","No synchronization needed"],a:1,e:"MQ: msgrcv with type=5 gets only type-5 messages. Pipe: strict FIFO, no type. MQ persists across process deaths. More structured. Used when multiple message categories needed."},
+{m:"OS",s:"IPC",q:"SIGTERM vs SIGKILL?",o:["Same effect","SIGTERM(15): catchable, graceful shutdown. SIGKILL(9): uncatchable, OS force-kills","SIGKILL is gentler","SIGTERM kills immediately"],a:1,e:"SIGTERM: request to terminate — process can catch it, cleanup, close files, save state. SIGKILL: OS forcibly kills, no cleanup possible. Always try SIGTERM first, wait, then SIGKILL if needed."},
+{m:"OS",s:"Memory",q:"Virtual memory purpose?",o:["Faster RAM","Process isolation: own virtual space. Run more processes than physical RAM via demand paging","GPU memory","Cache tier"],a:1,e:"Virtual memory: each process gets its own virtual address space. OS maps virtual→physical via page table. Enables: process isolation, demand paging (pages loaded on access), shared libraries, memory-mapped files."},
+{m:"OS",s:"Memory",q:"Page fault handling?",o:["Program crashes","CPU exception → OS: find page on disk → allocate free frame → load page → update page table → resume","Terminate","OOM kill"],a:1,e:"Page fault (valid): 1)CPU raises exception. 2)OS trap handler. 3)Find page in swap. 4)Find/evict free frame (page replacement if needed). 5)Load page. 6)Update PTE valid bit. 7)Restart faulting instruction."},
+{m:"OS",s:"Memory",q:"LRU page replacement: evict?",o:["Most recently used","Least Recently Used — page not accessed for longest time","Random page","Smallest"],a:1,e:"LRU: evict page with oldest last-access timestamp. Approximates OPT. Implementation: counter per page (timestamp), or clock algorithm (reference bit, second chance). No Belady's anomaly."},
+{m:"OS",s:"Memory",q:"Belady's anomaly?",o:["More frames = better always","FIFO replacement: MORE frames can cause MORE page faults — counter-intuitive","LRU anomaly","Not real"],a:1,e:"Belady's: FIFO can have more faults with more frames for specific reference strings. LRU and OPT are stack algorithms (immune). Classic counter-example to 'more memory = better'. FIFO is bad choice."},
+{m:"OS",s:"Memory",q:"TLB role?",o:["Cache disk blocks","Hardware cache of recent virtual-to-physical page table translations — O(1) lookup","Store process states","Network buffer"],a:1,e:"TLB: small (64-1024 entries) associative cache in MMU. TLB hit: translate in 1-2 cycles (near memory access speed). TLB miss: walk page table (multiple memory accesses). Hit rate ~95-99% due to locality."},
+{m:"OS",s:"Memory",q:"Paging vs segmentation fragmentation?",o:["Both same","Paging: internal (last page partially used). Segmentation: external (variable-size holes between segments)","Both external","Neither"],a:1,e:"Paging: fixed-size pages → internal fragmentation (avg half page wasted per process). Segmentation: variable sizes → external fragmentation (holes). Most modern OSes use paged segmentation."},
+{m:"OS",s:"Memory",q:"Copy-on-Write (COW) in fork()?",o:["Copies all memory immediately","Parent/child share physical pages initially — OS copies only pages that are written (just that page)","No sharing","Lock entire space"],a:1,e:"COW: fork() marks all pages read-only, shared. First write to any page: MMU fault → OS copies just that one page → process gets private writable copy. Efficient for exec() (replaces space anyway)."},
+{m:"OS",s:"Memory",q:"Working set?",o:["All allocated memory","Set of pages actively used in recent time window Δ — should stay in RAM","Pages on disk","Stack pages only"],a:1,e:"Working set W(t,Δ): pages referenced in last Δ time units. Sum of working sets > physical RAM → thrashing (spending more time paging than executing). Solution: reduce multiprogramming degree."},
+{m:"OS",s:"Memory",q:"Thrashing?",o:["CPU overheating","Process spends more time paging in/out than executing — CPU utilization collapses","Disk fragmentation","Network congestion"],a:1,e:"Thrashing: working set doesn't fit in RAM → constant page faults → CPU mostly doing I/O. Fix: reduce number of processes (reduce degree of multiprogramming), add RAM, improve working set locality."},
+{m:"OS",s:"File System",q:"Inode contains?",o:["File name + data","Metadata: permissions, owner, size, timestamps, data block pointers — NOT filename","Directory listing","FAT entry"],a:1,e:"Inode: per-file metadata. NOT the filename (filename in directory entry pointing to inode number). Contains: uid/gid, rwxrwxrwx, file size, link count, atime/mtime/ctime, block pointers (direct+indirect)."},
+{m:"OS",s:"File System",q:"Hard link vs symbolic link?",o:["Same","Hard: another directory entry for same inode (file survives until ALL links deleted). Soft: path string (breaks if target moved/deleted)","Hard faster","Soft permanent"],a:1,e:"Hard link: same inode, increments link count. File data persists until link count=0. Can't cross filesystem. Soft link: contains path string, can cross filesystems, becomes dangling if target deleted."},
+{m:"OS",s:"File System",q:"chmod 755?",o:["All users rwx","Owner:rwx(7=111), Group:r-x(5=101), Others:r-x(5=101)","Owner only rwx","Everyone read-only"],a:1,e:"755: owner=7(rwx=111), group=5(r-x=101), others=5(r-x=101). Typical for executables/directories. 644 for text files (rw-r--r--). 600 for SSH private keys (rw-------). 777 is security risk."},
+{m:"OS",s:"I/O Systems",q:"Blocking vs non-blocking I/O?",o:["Same","Blocking: process sleeps until data ready. Non-blocking (O_NONBLOCK): returns EAGAIN immediately if no data","Non-blocking always faster","Blocking uses polling"],a:1,e:"Blocking read(): process suspended until data available. Non-blocking: returns -1 EAGAIN. select()/poll()/epoll(): multiplexed — wait on multiple fds efficiently. Async I/O (aio_read): callback on completion."},
+{m:"OS",s:"Networking",q:"OSI Layer 3 handles?",o:["Physical signals","Ethernet framing","IP routing and logical addressing","TCP reliability"],a:2,e:"OSI: 1=Physical(bits/signals), 2=DataLink(Ethernet/MAC/frames), 3=Network(IP/routing), 4=Transport(TCP/UDP), 5=Session, 6=Presentation(TLS/encoding), 7=Application(HTTP/DNS/SSH)."},
+{m:"OS",s:"Networking",q:"TCP 3-way handshake?",o:["SYN,ACK,FIN","SYN → SYN-ACK → ACK","HELLO,HELLO-ACK,READY","CONNECT,ACCEPT,CONFIRM"],a:1,e:"Client: SYN(seq=x). Server: SYN-ACK(seq=y,ack=x+1). Client: ACK(ack=y+1). Both exchange ISNs. Connection established. 4-way FIN to close. Ensures both sides can send AND receive."},
+{m:"OS",s:"Networking",q:"Choose UDP over TCP when?",o:["Always TCP","Real-time/low-latency: DNS, VoIP, gaming, video streaming — speed > reliability","UDP for files","TCP only for web"],a:1,e:"UDP: no handshake, no ACK, no ordering, no flow control → lower latency. DNS: fast query/response. VoIP/gaming: better to drop than delay. TCP: files, HTTP, email — reliability required."},
+{m:"OS",s:"Socket Prog",q:"TCP server call sequence?",o:["connect,bind,listen,accept","socket()→bind()→listen()→accept()→recv()/send()→close()","listen,bind,accept","accept,bind,socket"],a:1,e:"Server: socket(AF_INET,SOCK_STREAM)→bind(fd,addr,len)→listen(fd,backlog)→accept(fd,&cli,&len)→recv()/send()→close(). Each accept() returns NEW fd for that specific client."},
+{m:"OS",s:"Socket Prog",q:"accept() returns?",o:["Client IP only","New fd for that specific client connection","Port number","Boolean"],a:1,e:"accept(): blocks until client connects, returns NEW fd for THAT client. Original listen fd continues accepting new clients. Fork/thread per accepted fd for concurrent server handling."},
+{m:"OS",s:"Socket Prog",q:"recv() returning 0 means?",o:["Error","No data yet","Connection closed gracefully by peer (FIN received)","Timeout"],a:2,e:"recv() returns: >0=bytes received, 0=connection closed (peer sent FIN, called close()), -1=error (check errno). Always handle 0: while((n=recv(fd,buf,size,0))>0){process} if(n==0)peer_closed();"},
+{m:"OS",s:"Socket Prog",q:"SO_REUSEADDR does?",o:["Share socket","Allow rebinding to port in TIME_WAIT — prevents 'Address already in use' on restart","Reuse buffer","Speed up send"],a:1,e:"After server crash, port stays in TIME_WAIT (2×MSL≈60sec). Without SO_REUSEADDR: bind() fails. setsockopt(fd,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(opt)) → rebind immediately on restart."},
+{m:"OS",s:"OS Security",q:"Buffer overflow attack?",o:["Network attack","Writing past buffer end overwrites return address — redirect execution to attacker's code","Memory leak","Integer overflow"],a:1,e:"strcpy without bounds: attacker inputs overwrite stack return address with shellcode address. Mitigations: bounds checking (strncpy), stack canaries (GCC -fstack-protector), ASLR, NX/DEP (non-exec stack), PIE."},
+{m:"OS",s:"OS Security",q:"ASLR does?",o:["Encrypts memory","Randomizes addresses of stack/heap/libraries each run — hardcoded exploit addresses invalid","ACL management","Password hashing"],a:1,e:"ASLR: OS randomizes base addresses. Attacker can't hardcode shellcode jump target. Combined with DEP/NX (non-executable stack) defeats simple buffer overflow exploits. /proc/sys/kernel/randomize_va_space."},
+{m:"OS",s:"Processes",q:"Process vs thread?",o:["Same","Thread: shares address space/heap/files with process, own stack+registers. Process: separate address space","Thread is slower","Process has no stack"],a:1,e:"Thread: shares code, data, heap, file descriptors. Own: stack, registers, thread ID. Cheaper to create/switch than process. Used for: concurrent servers, GUI responsiveness, parallel computation."},
+{m:"OS",s:"Processes",q:"Thread vs process context switch time?",o:["Same","Thread switch faster — no address space change, no TLB flush (same page tables)","Process faster","No difference"],a:1,e:"Thread switch (same process): save/load registers + stack pointer only. Process switch: save/load entire MMU state (page table base), flush TLB (very expensive). Thread switch ~10x faster."},
+// ════════════════════════════════════════════════════
+// MICROCONTROLLER & RISC-V — 110 Questions
+// ════════════════════════════════════════════════════
+{m:"MCU",s:"MCU Intro",q:"MCU vs MPU key difference?",o:["Speed only","MCU: CPU+RAM+Flash+Peripherals on ONE chip. MPU: CPU only, needs external DRAM/storage","Price only","Power only"],a:1,e:"MCU (STM32, AVR, PIC): self-contained SoC. MPU (x86, ARM Cortex-A): CPU only, needs external DRAM, flash, I/O chips. MCU for embedded/IoT, MPU for computing applications."},
+{m:"MCU",s:"MCU Intro",q:"ARM Cortex-M privilege states?",o:["User and Root","Privileged (handlers, full access) and Unprivileged (user tasks, restricted)","Master and Slave","Ring 0-3"],a:1,e:"Cortex-M: Privileged (handlers always, Thread mode at reset) and Unprivileged (Thread mode restricted). Stack: MSP (Main Stack, privileged) and PSP (Process Stack, RTOS tasks)."},
+{m:"MCU",s:"MCU Intro",q:"Endianness?",o:["CPU speed","Byte order: Little-endian (LSB at low address, ARM default) vs Big-endian (MSB first, network)","Memory alignment","Cache line"],a:1,e:"ARM: little-endian (configurable). 0x12345678 stored as 78 56 34 12. Network byte order=big-endian. Critical when parsing multi-byte values from sensors, protocols, or communicating between different architectures."},
+{m:"MCU",s:"MCU Intro",q:"Programming model: state in Cortex-M?",o:["Thread and Handler modes only","Thread mode (normal code) and Handler mode (exceptions/ISRs) + privilege levels","Run and sleep only","Master and slave"],a:1,e:"Cortex-M dual-mode: Thread mode (normal code, can be privileged or unprivileged) and Handler mode (always privileged, runs on exception/interrupt). Mode switches on exception entry/exit."},
+{m:"MCU",s:"Architecture",q:"ARM Cortex-M instruction set?",o:["32-bit ARM only","16-bit Thumb only","Thumb-2: mix of 16-bit and 32-bit — code density + performance, no mode switching","8-bit instructions"],a:2,e:"Thumb-2: 16-bit common instructions (code density, less flash usage) + 32-bit for complex ops. No mode switching (unlike old ARM+Thumb). ~26% less code than pure 32-bit ARM."},
+{m:"MCU",s:"Architecture",q:"ARM register R14?",o:["Stack Pointer","Link Register — BL/BLX stores return address. BX LR = return from function","Program Counter","General scratch"],a:1,e:"R14=LR (Link Register). BL func: stores PC+4 in LR. BX LR: jump to address in LR (return). Nested calls: must push LR to stack before calling another function. R13=SP, R15=PC."},
+{m:"MCU",s:"Architecture",q:"Harvard vs von Neumann in MCU?",o:["Same","Harvard: separate instruction and data buses (concurrent fetch+data). Modified Harvard: Cortex-M design","Harvard is older","Von Neumann has 2 buses"],a:1,e:"Modified Harvard (Cortex-M): separate I-Bus (instruction fetch), D-Bus (data access), System Bus (peripherals). Allows simultaneous code fetch and data read/write. Faster than shared von Neumann bus."},
+{m:"MCU",s:"Architecture",q:"ARM ALU performs?",o:["Memory management","Arithmetic (ADD,SUB,MUL) and Logical (AND,OR,XOR,shift) operations","Interrupt handling","Clock generation"],a:1,e:"ALU: core computation unit. ADD, SUB, MUL, DIV. AND, OR, XOR, NOT. Shifts (LSL, LSR, ASR). Comparison (CMP, TST). Updates APSR flags (N,Z,C,V) for conditional execution."},
+{m:"MCU",s:"Memory",q:"RAM vs Flash in STM32?",o:["Same hardware","SRAM: volatile fast read-write (variables, stack, heap). Flash: non-volatile slow-write fast-read (program code, const data)","Flash is faster always","RAM stores program"],a:1,e:"STM32: Flash at 0x08000000 (code, const). SRAM at 0x20000000 (variables, stack, heap). Flash: non-volatile, survives power cycle, slow erase. SRAM: volatile (lost on reset), fast R/W, limited size."},
+{m:"MCU",s:"Memory",q:"SFRs (Special Function Registers)?",o:["Extra CPU registers R0-R15","Memory-mapped peripheral control registers at fixed addresses (GPIO, UART, ADC, Timers)","Cache registers","Debug registers"],a:1,e:"SFR: GPIOA_ODR at 0x40020014. Write 1 to bit 5 → PA5 goes high (LED on). Read GPIOA_IDR bit 0 → PA0 current digital value. Direct hardware control via memory-mapped I/O."},
+{m:"MCU",s:"Memory",q:"Bit-banding in Cortex-M?",o:["Bit compression","Maps each bit in 1MB SRAM/peripheral region to unique 32-bit word in 32MB alias — atomic bit R/W","Bit encryption","Cache optimization"],a:1,e:"Bit-band alias: word_addr=alias_base+(byte_offset×32)+(bit×4). Write 1/0 to word → atomically set/clear bit. No read-modify-write race condition. SRAM bit-band region: 0x20000000-0x20100000 → 0x22000000."},
+{m:"MCU",s:"Memory",q:"MPU (Memory Protection Unit)?",o:["Expands RAM","Define memory regions with access permissions — prevent task corruption of OS/other tasks","Encrypts memory","Speeds up memory"],a:1,e:"MPU: 8 configurable regions. Each: base address, size, permissions (R/W/X, privileged/unprivileged). RTOS uses MPU to isolate tasks. Access violation → MemFault exception. Unlike MMU: no address translation."},
+{m:"MCU",s:"Debugging",q:"'Flashing' an MCU?",o:["Testing LEDs","Writing compiled firmware (.bin/.hex) to MCU's flash memory via JTAG/SWD/bootloader","Benchmarking speed","Overclocking"],a:1,e:"Flashing: write compiled firmware binary to flash. Tools: ST-Link (SWD), J-Link (JTAG), USB DFU bootloader, UART bootloader. Tools like STM32CubeProgrammer, OpenOCD, pyOCD automate this."},
+{m:"MCU",s:"Debugging",q:"JTAG vs SWD?",o:["Same","JTAG: 4-5 pins, boundary scan capable. SWD: 2 pins (SWDIO+SWDCLK), ARM-specific, same debug capability in fewer pins","SWD is slower","JTAG is ARM-only"],a:1,e:"SWD: ARM Serial Wire Debug. 2 pins vs JTAG's 5. Same capability: breakpoints, step, register view, flash programming. ST-Link uses SWD. Less PCB routing. More pins available for other functions."},
+{m:"MCU",s:"GPIO",q:"STM32 GPIO setup sequence?",o:["Just write ODR","Enable RCC clock → Set mode register → Configure type/speed/pull → Write ODR","No setup needed","Only configure mode"],a:1,e:"1)Enable clock: RCC->APB2ENR|=RCC_APB2ENR_IOPAEN. 2)Set mode: GPIOA->CRL (00=input, 01=output push-pull 10MHz). 3)Configure pull/type if input. 4)Write GPIOA->ODR to drive pin. Must enable clock FIRST."},
+{m:"MCU",s:"GPIO",q:"Push-pull vs open-drain output?",o:["Same","Push-pull: drives HIGH (source current) and LOW (sink current). Open-drain: only drives LOW (needs external pull-up for HIGH state)","Open-drain stronger","Push-pull needs pull-up"],a:1,e:"Push-pull: strong drive both ways (3.3V/GND). Open-drain: only pulls LOW (N-FET to GND). HIGH state from pull-up resistor. Multiple open-drain pins can share line → wired-AND (I2C bus uses this)."},
+{m:"MCU",s:"ADC/DAC",q:"12-bit ADC output range?",o:["0-255","0-1023","0-4095","0-65535"],a:2,e:"12-bit: 2^12=4096 levels, 0 to 4095. Resolution=Vref/4096. Vref=3.3V: 1LSB≈0.8mV. Higher bits: more precision but slower conversion. 10-bit: 0-1023. 16-bit: 0-65535."},
+{m:"MCU",s:"ADC/DAC",q:"DMA advantage in ADC?",o:["Faster ADC","Transfer ADC results to RAM without CPU involvement — CPU free for other tasks, zero overhead","More channels","Higher resolution"],a:1,e:"ADC+DMA: configure DMA (src=ADC_DR, dst=buffer[], count=N, circular). DMA fills buffer automatically. CPU interrupt when half/full. CPU completely free during transfers. Essential for high sample rates."},
+{m:"MCU",s:"ADC/DAC",q:"Nyquist theorem?",o:["Sample at signal frequency","Sample at ≥ 2× max signal frequency to avoid aliasing","Sample at signal/2","Sample at 10× signal"],a:1,e:"Nyquist: fs≥2×fmax. Audio 20kHz: CD uses 44.1kHz. Anti-aliasing filter (low-pass at fs/2) before ADC essential. Aliasing: signal above fs/2 appears as lower-frequency artifact in digitized signal."},
+{m:"MCU",s:"Timers",q:"PWM duty cycle?",o:["Frequency of signal","Percentage of period signal is HIGH: 0%=off, 50%=half power, 100%=full on","Timer count value","Prescaler value"],a:1,e:"Duty cycle=(ton/period)×100%. 75%: HIGH for 750ms of each 1s period. Motor speed, LED brightness, servo angle, DAC approximation all controlled by varying duty cycle via compare register."},
+{m:"MCU",s:"Timers",q:"Timer period: SysClk=72MHz, PSC=71, ARR=999?",code:"SysClk=72MHz, PSC=71, ARR=999",o:["1ms","10ms","100μs","1s"],a:0,e:"Timer_clock=72MHz/(71+1)=1MHz. Period=(ARR+1)/timer_clock=1000/1MHz=1ms=1kHz. Used for: 1ms system tick, 1kHz PWM frequency, or 1ms interrupt period."},
+{m:"MCU",s:"Timers",q:"Input capture mode?",o:["Generate PWM","Measures frequency or pulse width of external signal — captures counter value on selected edge","Count internal events","ADC trigger"],a:1,e:"Input capture: on rising/falling/both edge, hardware stores TIM_CNT into CCR. Measure period: (CCR2-CCR1)/timer_clock=period=1/frequency. Measure duty cycle: (CCR_fall-CCR_rise)/period."},
+{m:"MCU",s:"Timers",q:"RTC uses 32.768 kHz crystal because?",o:["Cheapest","2^15=32768 Hz — easy to divide to exactly 1Hz with 15-bit counter. Ultra-low power crystal","Highest precision","Only frequency available"],a:1,e:"32768=2^15. 15-bit binary counter (prescaler=32767) divides to 1Hz. Ultra-low power Pierce oscillator. Coin cell battery (CR2032) keeps RTC running years when main power is off."},
+{m:"MCU",s:"Watchdog",q:"IWDG (Independent Watchdog)?",o:["Generate PWM","Resets MCU if software doesn't refresh within timeout — detects firmware hangs and crashes","Measure frequency","USB timeout"],a:1,e:"IWDG: LSI RC oscillator (~40kHz), independent of main clock. Software writes IWDG_KR=0xAAAA periodically. If timeout expires without refresh → hardware reset. Catches: infinite loops, stuck code, hangs."},
+{m:"MCU",s:"Watchdog",q:"WWDG (Window Watchdog) vs IWDG?",o:["Same","WWDG: refresh only within time window — too early OR too late → reset. IWDG: refresh anytime before timeout","WWDG more reliable","IWDG has window too"],a:1,e:"WWDG: open window (between T2 and T1). Refresh before window opens (too early → reset): detects abnormally fast code. After T1 (too late → reset): detects hangs. Catches both abnormal fast AND slow paths."},
+{m:"MCU",s:"Interrupts",q:"IVT (Interrupt Vector Table) contains?",o:["Stack data","Array of exception handler addresses at start of flash — indexed by exception number","All CPU registers","Constant data"],a:0,e:"Vector table: entry[0]=initial MSP, entry[1]=Reset handler, entry[3]=HardFault, entry[11]=SVCall, entry[14]=PendSV, entry[15]=SysTick, entry[16+]=external IRQs. VTOR register relocates table."},
+{m:"MCU",s:"Interrupts",q:"Hardware auto-save on Cortex-M exception entry?",o:["All 16 registers","R0-R3, R12, LR(R14), PC(R15), xPSR — 8 registers pushed to stack automatically","Only PC","Nothing — software must save"],a:1,e:"Auto-saved exception frame (8 regs): R0,R1,R2,R3,R12,LR,PC,xPSR. Hardware pushes to stack before ISR runs. ISR can freely use R0-R3,R12. Must manually save/restore R4-R11 if ISR uses them (AAPCS callee-saved)."},
+{m:"MCU",s:"Interrupts",q:"NVIC priority: lower number means?",o:["Lower priority","HIGHER priority — 0 is highest, preempts all others. Set with NVIC_SetPriority()","Same priority","Disabled"],a:1,e:"NVIC: 0=highest priority. Configurable width (e.g., 4 bits → 16 levels 0-15). Higher priority interrupt preempts lower. NMI and HardFault have fixed highest priorities (can't be changed)."},
+{m:"MCU",s:"Interrupts",q:"SysTick exception used for?",o:["External GPIO interrupt","Periodic OS tick for RTOS scheduling — FreeRTOS default 1ms tick","UART receive","Hard fault detection"],a:1,e:"SysTick: 24-bit countdown timer. Reload value=(tick_rate×sys_clock)-1. FreeRTOS uses SysTick for task time-slicing. STM32 HAL uses SysTick for HAL_Delay(). RTOS sets up SysTick in configSYSTICK_CLOCK_HZ."},
+{m:"MCU",s:"Interrupts",q:"PendSV exception?",o:["Pending software violation","Lowest-priority exception for RTOS context switching — ISR pends it, runs after all higher-priority ISRs complete","GPIO interrupt","Timer overflow"],a:1,e:"RTOS ISR: determine task switch needed → set ICSR.PENDSVSET=1. After ALL ISRs complete: PendSV runs (lowest priority). PendSV: save current task context (R4-R11+PSP) → load next task context → return."},
+{m:"MCU",s:"Interrupts",q:"SVCall (SVC)?",o:["Stack violation","Supervisor Call: unprivileged RTOS task requests privileged OS service — embedded system call","Speed check","Segment violation"],a:1,e:"SVC instruction → SVCall exception (kernel mode). RTOS tasks call OS APIs (xTaskCreate, vTaskDelay, mutex) via SVC. Allows privileged OS code to run on behalf of unprivileged task. Embedded equivalent of Linux syscall."},
+{m:"MCU",s:"Interrupts",q:"ISR best practice?",o:["Long complex ISRs for all processing","SHORT ISRs: set flag/copy to buffer, return immediately. Main loop or RTOS task does actual processing","ISRs can sleep","ISRs should use printf"],a:1,e:"Short ISR: clear flag, copy data to ring buffer, set flag. Exit quickly. Long ISRs block other interrupts → increased interrupt latency → missed real-time deadlines. Deferred processing pattern is standard."},
+{m:"MCU",s:"Interrupts",q:"HardFault exception?",o:["User code error only","Catch-all fault: triggered when another fault can't be handled (disabled or fault-during-fault handling)","Normal interrupt","Power failure"],a:1,e:"HardFault: BusFault, MemFault, or UsageFault that can't be handled (disabled or occurs while handling another fault). Causes: invalid memory access, illegal instruction, stack overflow, divide by zero (if enabled)."},
+{m:"MCU",s:"CMSIS",q:"CMSIS provides?",o:["Physical hardware","Standardized headers, startup code, DSP/NN libraries, RTOS API for all ARM Cortex-M vendors","Compiler toolchain","Debug hardware interface"],a:1,e:"CMSIS: ARM's standardization. Core: register headers (core_cm4.h), startup, core functions (__WFI, __enable_irq). DSP: optimized FFT, FIR. RTOS: OS API. NN: neural network. Same API across ST, NXP, Nordic, Microchip."},
+{m:"MCU",s:"CMSIS",q:"CMSIS-DSP arm_fft_f32() does?",o:["GPIO toggle","Optimized FFT using SIMD/FPU instructions — much faster than naive C implementation","UART send","Timer configure"],a:1,e:"CMSIS-DSP: >60 DSP functions optimized for Cortex-M4/M7 FPU and SIMD (DSP extension). arm_fft_f32(), arm_fir_f32(), arm_pid_f32(). 10-100× faster than equivalent naive C code."},
+{m:"MCU",s:"UART",q:"UART 8N1 frame format?",o:["8 bytes, null, 1 second","1 start + 8 data bits + No parity + 1 stop = 10 bits total per byte","8-bit, no sync, 1 wire","8MHz, no interrupt, 1 DMA"],a:1,e:"UART 8N1: 1 start(always 0) + 8 data(LSB first) + no parity + 1 stop(always 1) = 10 bits. At 9600 baud: 9600/10=960 bytes/sec max throughput. Most common UART configuration."},
+{m:"MCU",s:"UART",q:"UART 'asynchronous' means?",o:["No data transmitted","No shared clock wire — both ends must be configured with same baud rate","One direction only","Software timing only"],a:1,e:"UART: no SCLK pin. Both devices must agree on baud rate (9600, 115200, 921600, etc.). Start bit signals beginning. Stop bit signals end. Baud rate mismatch → garbled data, framing errors."},
+{m:"MCU",s:"UART",q:"Baud rate?",o:["Bytes per second","Bits per second (symbols per second) — line coding rate","Packets per second","Errors per second"],a:1,e:"Baud rate = bits/sec. 9600 baud = 9600 bits/sec. For 8N1: 10 bits per byte → 960 bytes/sec at 9600 baud. 115200 baud → 11520 bytes/sec. Common: 9600, 115200, 921600."},
+{m:"MCU",s:"SPI",q:"SPI CS (Chip Select) purpose?",o:["Clock control","Select which slave is active — active LOW enables slave, HIGH disables (MISO goes high-impedance)","Data direction control","Power on/off"],a:1,e:"Multiple slaves on same MOSI/MISO/SCLK. Each slave has own CS pin (GPIO or dedicated). Master pulls CS LOW: slave enabled, responds to SCLK. CS HIGH: slave ignores bus, MISO high-impedance."},
+{m:"MCU",s:"SPI",q:"SPI Mode 0 (CPOL=0, CPHA=0)?",o:["Clock idle high, sample falling","Clock idle LOW, data sampled on FIRST (rising) edge — most common","Clock idle high, sample rising","Clock idle low, sample falling"],a:1,e:"Mode 0: CPOL=0 (idle low), CPHA=0 (sample on first/rising edge). Most sensors/flash chips use Mode 0. Mode 3 (CPOL=1,CPHA=1): also common. Always check device datasheet for correct mode."},
+{m:"MCU",s:"SPI",q:"SPI vs I2C?",o:["Same","SPI: faster (MHz), 4 wires, full-duplex, no addressing. I2C: slower (400kHz-3.4MHz), 2 wires, half-duplex, 7-bit address","I2C always faster","SPI uses 2 wires"],a:1,e:"SPI: 1-50MHz, MOSI+MISO+SCLK+CS, full-duplex (simultaneous send/receive), one CS per slave. I2C: 100kHz-3.4MHz, SDA+SCL, half-duplex, shared bus with addressing. SPI for speed, I2C for bus simplicity."},
+{m:"MCU",s:"I2C",q:"I2C START condition?",o:["SCL goes high","SDA HIGH→LOW while SCL HIGH — unique bus event not during data","Both lines go low","Both go high"],a:1,e:"I2C START: SDA falls while SCL high — unique event. STOP: SDA rises while SCL high. During data: SDA only changes while SCL is LOW. Data sampled on SCL rising edge. Open-drain + pull-ups required."},
+{m:"MCU",s:"I2C",q:"I2C address byte format?",o:["8 data bits","7 address bits + 1 R/W bit (0=write, 1=read) — then slave ACKs","7 address + parity","6 address + 2 control"],a:1,e:"First byte after START: [A6][A5][A4][A3][A2][A1][A0][R/W]. 7-bit address (up to 128, ~112 usable). R/W=0: master writes. R/W=1: master reads. Slave with matching address pulls SDA low (ACK)."},
+{m:"MCU",s:"I2C",q:"I2C pull-up resistors needed because?",o:["Protection","SDA and SCL are open-drain — can only pull LOW. Pull-up provides HIGH state. Enables wired-AND logic","Speed control","Noise filter"],a:1,e:"Open-drain: transistor pulls line to GND (LOW). Pull-up to VCC: when no device pulling LOW, line rises to VCC (HIGH). Multiple devices can pull LOW simultaneously → wired-AND. Typical: 4.7kΩ at 100kHz, 2.2kΩ at 400kHz."},
+{m:"MCU",s:"I2C",q:"I2C Fast Mode speed?",o:["100 kbps","400 kbps","1 Mbps","10 Mbps"],a:1,e:"I2C speeds: Standard=100kbps, Fast Mode=400kbps, Fast Mode+=1Mbps, High Speed=3.4Mbps. Choose based on device capabilities and EMI requirements. Lower R pull-up needed for higher speeds."},
+{m:"MCU",s:"CAN",q:"CAN bus arbitration?",o:["Faster node wins","Bitwise: lower message ID wins — dominant 0 beats recessive 1. Winner continues without collision damage","Round robin","Master-assigned"],a:1,e:"CSMA/CD+AMP: all nodes transmit simultaneously, read back bus. If wrote 1 but read 0 → lost arbitration (dominant wins) → stop, retry later. Lower ID (more leading 0s) wins. No message corruption."},
+{m:"MCU",s:"CAN",q:"CAN reliable in automotive because?",o:["High speed only","Differential pair (CANH-CANL, noise cancellation), CRC, ACK from all receivers, auto-retransmit, bus-off protection","Shielded cables only","Software error handling only"],a:1,e:"CAN reliability: 1)Differential pair cancels common-mode EMI. 2)CRC-15 error detection. 3)ACK: all receivers acknowledge. 4)Auto-retransmit on error. 5)Error counters→bus-off state (isolates faulty node). Industry-proven."},
+{m:"MCU",s:"CAN",q:"CAN message identifier purpose?",o:["Node address","Message priority AND content type — lower ID = higher priority in arbitration","Timestamp","Checksum"],a:1,e:"CAN ID serves dual purpose: (1) identifies message type/content, (2) determines priority in arbitration. Lower ID = higher priority. Standard: 11-bit ID (2048 IDs). Extended: 29-bit ID (512M IDs)."},
+{m:"MCU",s:"Low Power",q:"STM32 Sleep vs Stop vs Standby?",o:["Same power","Sleep: CPU off, peripherals on (fast wake). Stop: CPU+clocks off, SRAM retained (slow wake). Standby: deepest, SRAM lost (μA level)","Sleep is deepest","Standby fastest wake"],a:1,e:"Sleep: CPU halted, all peripherals run, wake on any interrupt. Stop: most clocks stopped, SRAM+registers retained, wake via EXTI/RTC. Standby: almost all off, wake via WKUP pin/RTC, SRAM lost (only backup domain)."},
+{m:"MCU",s:"Low Power",q:"Clock gating?",o:["Reducing voltage","Stopping clock to unused peripheral — idle peripheral with stopped clock consumes near-zero dynamic power","Slowing main clock","Disabling interrupts"],a:1,e:"Clock gating: RCC->APB1ENR &= ~RCC_APB1ENR_USART2EN disables USART2 clock. Dynamic power ∝ clock frequency. Ungated idle peripheral: toggle power. Gated: near zero dynamic power. Always gate unused peripherals."},
+{m:"MCU",s:"Low Power",q:"WFI instruction?",o:["Wait for IRQ register","Wait For Interrupt: halts CPU until interrupt occurs — reduces power, wakes on any enabled interrupt","Write Flash immediately","Write FIFO input"],a:1,e:"__WFI(): CPU enters low-power state (sleep). Clock gated to CPU core. Wakes on any enabled interrupt. Used in: main loop idle, RTOS idle task hook. Immediately reduces active power consumption."},
+{m:"MCU",s:"Cortex Profiles",q:"Cortex-A vs Cortex-M vs Cortex-R?",o:["Speed only differs","A: high-perf, MMU, Linux/Android. M: microcontroller, MPU, RTOS. R: real-time deterministic, automotive/industrial","A is newest","M is most powerful"],a:1,e:"Cortex-A (Application): MMU, caches, SIMD, runs Linux. Cortex-M (Microcontroller): no MMU, simpler pipeline, IoT/embedded. Cortex-R (Real-time): MPU, tightly-coupled memory, hard real-time (ABS, disk controller)."},
+{m:"MCU",s:"Cortex Profiles",q:"MMU vs MPU?",o:["Same hardware","MMU: virtual memory with address translation (Cortex-A, Linux). MPU: access protection only, no translation (Cortex-M, RTOS)","MPU is superset","MMU simpler"],a:1,e:"MMU: translates virtual→physical addresses, enables process isolation, virtual memory, paging. Required for Linux. MPU: defines protection regions, no address translation, simpler, lower overhead. Cortex-A has MMU, Cortex-M has MPU."},
+{m:"MCU",s:"RISC-V",q:"RISC-V vs ARM?",o:["ARM is open source too","RISC-V: open standard, royalty-free ISA (BSD license). ARM: proprietary, requires licensing fees","RISC-V is faster","ARM has more registers"],a:1,e:"RISC-V: open ISA, no royalties. Anyone can implement. Modular: RV32I base + M(mul/div), A(atomic), F(float), D(double), C(compressed), V(vector) extensions. Growing in IoT, academia, CDAC VEGA, SHAKTI."},
+{m:"MCU",s:"RISC-V",q:"RISC-V integer registers?",o:["8","16","32 (x0-x31)","64"],a:2,e:"32 registers: x0-x31. x0=hardwired zero. RV32I: 32-bit registers. RV64I: 64-bit. ABI names: x1=ra, x2=sp, x3=gp, x4=tp, x5-x7=t0-t2, x8-x9=s0-s1, x10-x17=a0-a7(args), x18-x27=s2-s11(saved), x28-x31=t3-t6."},
+{m:"MCU",s:"RISC-V",q:"x0 register in RISC-V?",o:["Stack pointer","Return address","Hardwired 0 — reads always 0, writes discarded","General scratch"],a:2,e:"x0=zero: reads always return 0, writes silently discarded. Enables: NOP=ADDI x0,x0,0. Discard result=ADD x0,x1,x2. Branch always=BEQ x0,x0,label. Useful constant zero without dedicated instruction."},
+{m:"MCU",s:"RISC-V",q:"RISC-V instruction formats in RV32I?",o:["Only 2","R, I, S, B, U, J — 6 formats, all 32-bit wide","Variable length","8-bit formats"],a:1,e:"6 fixed 32-bit formats: R(reg-reg ops: ADD,AND), I(immediate+loads: ADDI,LW), S(stores: SW), B(branches: BEQ), U(upper immediate: LUI,AUIPC), J(jumps: JAL). Compressed(C) extension adds 16-bit instructions."},
+{m:"MCU",s:"RISC-V",q:"mepc CSR?",o:["Memory end pointer","Machine Exception PC — stores PC of instruction that caused trap. MRET restores PC from mepc","Machine enable PC","Memory error PC"],a:1,e:"mepc: saved on exception/interrupt entry. Synchronous exception: mepc=faulting instruction address. Interrupt: mepc=next instruction to execute. MRET instruction restores PC from mepc to return from trap."},
+{m:"MCU",s:"RISC-V",q:"mcause MSB=1 means?",o:["Exception occurred","Interrupt (vs exception when MSB=0). Lower bits identify specific cause code","Error type","Memory fault"],a:1,e:"mcause: MSB=1→interrupt (3=machine software, 7=machine timer, 11=machine external). MSB=0→exception (0=misaligned fetch, 2=illegal instruction, 8=U-ECALL, 11=M-ECALL). Read at trap handler start to dispatch."},
+{m:"MCU",s:"RISC-V",q:"mtvec register?",o:["Stack top","Base address of trap handler + mode bits (Direct: all→BASE, Vectored: interrupts→BASE+4×cause)","Process ID","Memory size"],a:1,e:"mtvec: points to trap handler. Direct mode (mode[1:0]=0): all exceptions/interrupts→BASE. Vectored mode (mode=1): interrupts→BASE+4×cause, exceptions→BASE. Must set in startup before enabling interrupts."},
+{m:"MCU",s:"RISC-V",q:"RISC-V privilege modes?",o:["User only","Machine(M), Supervisor(S), User(U) — M is mandatory and highest","Ring 0-3","Hypervisor, OS, App"],a:1,e:"M-mode: mandatory, highest privilege, direct hardware. Simple MCUs: M-mode only. Linux-capable: M+S+U. S-mode: OS kernel. U-mode: user applications. ECALL: U→M or U/S→M. MRET: return from M-mode."},
+{m:"MCU",s:"RISC-V",q:"ECALL instruction?",o:["External interrupt call","Voluntary trap to higher privilege — U-mode requests OS service (embedded system call mechanism)","Error check","Arithmetic operation"],a:1,e:"ECALL: Environment Call. Generates exception, transfers to higher privilege mode. Convention: a7=syscall number, a0-a5=arguments, a0=return value. Equivalent to Linux 'syscall' instruction or ARM 'svc'."},
+{m:"MCU",s:"RISC-V",q:"MRET instruction?",o:["Memory return","Return from M-mode trap: PC←mepc, privilege←mstatus.MPP, MIE←mstatus.MPIE","Machine reset","Multiply return"],a:1,e:"MRET: atomically restore: PC=mepc (return address), privilege=mstatus.MPP (previous privilege level), MIE=mstatus.MPIE (previous interrupt enable). Equivalent of x86 IRET for M-mode."},
+{m:"MCU",s:"RISC-V",q:"RISC-V NOP encoding?",o:["Dedicated NOP opcode","ADDI x0, x0, 0 — writes to x0 (discarded), no side effects, 1 cycle","MOV x0, x0","HALT instruction"],a:1,e:"No dedicated NOP in RV32I base. Standard NOP=ADDI x0,x0,0 (encodes as 0x00000013). Assembler translates NOP mnemonic to this. Zero destination=result discarded. Pipeline slot filler."},
+{m:"MCU",s:"VEGA",q:"C-DAC VEGA implements which RISC-V variant?",o:["RV64GC","RV32IM (32-bit base + multiply/divide extension)","RV128","ARM Cortex-M"],a:1,e:"VEGA: C-DAC Mumbai's indigenous RISC-V processor. Implements RV32IM (RV32I base integer + M extension for multiply/divide). Part of India's semiconductor sovereignty initiative. Used in IoT and edge computing."},
+{m:"MCU",s:"VEGA",q:"Why RISC-V is important for India (VEGA, SHAKTI)?",o:["Faster than ARM","Open ISA: no licensing fees, sovereign design, fully customizable, academic/research friendly","Only better performance","More registers than ARM"],a:1,e:"RISC-V benefits for India: 1)Royalty-free (save billions in licensing). 2)Full specification open. 3)Customizable (add domain-specific extensions). 4)Academic: openly taught. 5)AtmaNirbhar Bharat: VEGA (C-DAC), SHAKTI (IIT Madras). 6)Growing global ecosystem."},
+{m:"MCU",s:"RISC-V",q:"RISC-V mstatus.MIE bit?",o:["Memory interrupt enable","Machine Interrupt Enable — when 1: M-mode interrupts enabled. Cleared on trap entry, restored on MRET","Memory initialization","Machine ISR enable"],a:1,e:"mstatus.MIE: global interrupt enable for M-mode. When exception/interrupt occurs: MIE saved to mstatus.MPIE, MIE cleared (disabling further interrupts). MRET restores MIE from MPIE."},
+{m:"MCU",s:"RISC-V",q:"RISC-V calling convention: which registers are caller-saved?",o:["x8-x27 (saved registers)","x1(ra), x5-x7(t0-t2), x10-x17(a0-a7), x28-x31(t3-t6) — temporary/argument registers","x0-x4","x18-x27 only"],a:1,e:"Caller-saved (temporaries): ra(x1), t0-t6(x5-x7,x28-x31), a0-a7(x10-x17). Caller must save before function call if needed after. Callee-saved: s0-s11(x8-x9,x18-x27) — called function must preserve these."},
+];
+// ═══════════════════════════════════════════
+// ENGINE
+// ═══════════════════════════════════════════
+document.getElementById('kq').textContent=BANK.length;
+const MC={EC:'var(--ec)',DSA:'var(--dsa)',OS:'var(--os)',MCU:'var(--mcu)'};
+const LBK='cdac_esd_lb_2026';
+let uN='',uM='ALL',uMd='practice',qs=[],ans=[],ch={},cQ=0,tId=null,tL=0,tS=0,df='ALL';
+function show(id){
+document.querySelectorAll('.scr').forEach(s=>{s.classList.remove('on');s.style.display='none';});
+const el=document.getElementById(id);
+el.style.display=(id==='sx')?'grid':'flex';
+el.classList.add('on');window.scrollTo(0,0);
+}
+function hl(c){
+return c.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+.replace(/(\/\/[^\n]*)/g,'<span class="cmt">$1</span>')
+.replace(/(#\w+)/g,'<span class="pp">$1</span>')
+.replace(/\b(int|char|float|double|void|return|if|else|while|for|do|switch|case|break|continue|default|struct|typedef|enum|union|const|static|extern|volatile|sizeof|unsigned|signed|auto|register|printf|scanf|malloc|calloc|realloc|free|NULL|main|include)\b/g,'<span class="kw">$1</span>')
+.replace(/"([^"]*)"/g,'<span class="str">"$1"</span>')
+.replace(/\b(\d+(?:\.\d+)?[fFuUlLxX0-9a-fA-F]*)\b/g,'<span class="num">$1</span>');
+}
+function shuf(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=0|Math.random()*(i+1);[b[i],b[j]]=[b[j],b[i]];}return b;}
+function initLand(){
+const lb=JSON.parse(localStorage.getItem(LBK)||'[]');
+document.getElementById('katt').textContent=lb.length;
+}
+document.getElementById('bproc').addEventListener('click',()=>{
+const n=document.getElementById('iname').value.trim();
+if(!n){alert('Please enter your name!');return;}
+uN=n;uM=document.getElementById('imod').value;uMd=document.getElementById('imode').value;
+const ti=document.getElementById('iitime');
+if(uMd==='practice')ti.textContent='Mode: Practice — untimed, instant feedback after each answer';
+else if(uMd==='quick')ti.textContent='Quick Test: 15 min for 30 random questions';
+else ti.textContent='Exam Mode: 30 min/module, 90 min for All Modules. Auto-submits on timeout';
+show('si');
+});
+document.getElementById('bbeg').addEventListener('click',startExam);
+function startExam(){
+let pool=uM==='ALL'?[...BANK]:BANK.filter(q=>q.m===uM);
+pool=shuf(pool);
+if(uMd==='quick')pool=pool.slice(0,30);
+qs=pool.map(q=>{const so=shuf(q.o);const ca=q.o[q.a];return{...q,o:so,a:so.indexOf(ca)};});
+ans=new Array(qs.length).fill(null);ch={};cQ=0;
+if(uMd==='practice')tL=0;
+else if(uMd==='quick')tL=15*60;
+else tL=(uM==='ALL'?90:30)*60;
+tS=Date.now();
+document.getElementById('qt').textContent=qs.length;
+show('sx');renderSB();renderQ(0);
+if(uMd!=='practice')startTmr();
+else document.getElementById('tmr').textContent='∞';
+}
+function startTmr(){
+clearInterval(tId);
+tId=setInterval(()=>{
+tL--;
+const m=String(0|tL/60).padStart(2,'0'),s=String(tL%60).padStart(2,'0');
+const el=document.getElementById('tmr');
+el.textContent=`${m}:${s}`;
+el.className='tmr'+(tL<=120?' d':tL<=300?' w':'');
+if(tL<=0){clearInterval(tId);doSub();}
+},1000);
+}
+function renderQ(idx){
+cQ=idx;const q=qs[idx];
+document.getElementById('qn').textContent=idx+1;
+const mb=document.getElementById('qmod');
+mb.textContent=q.m;mb.style.cssText=`background:${MC[q.m]}22;color:${MC[q.m]};border:1.5px solid ${MC[q.m]}44`;
+document.getElementById('qsess').textContent=q.s;
+const done=ans[idx]!==null&&ans[idx]!=='skipped';
+const lb=['A','B','C','D'];
+let h=`<div class="qhead"><span class="qbdg" style="color:${MC[q.m]};border-color:${MC[q.m]}33">${q.m}·Q${idx+1}</span><span class="qbdg">${q.s}</span></div>
+<div class="qtxt">${q.q.replace(/\n/g,'<br>')}</div>`;
+if(q.code)h+=`<pre class="code">${hl(q.code)}</pre>`;
+h+=`<div class="opts">`;
+q.o.forEach((opt,oi)=>{
+let cls='opt';
+if(done){if(oi===q.a)cls+=' ok hl';else if(ch[idx]===oi)cls+=' ng';cls+=' dis';}
+h+=`<div class="${cls}" onclick="ansQ(${idx},${oi})"><div class="ocir">${lb[oi]}</div><div>${opt}</div></div>`;
+});
+h+=`</div>`;
+if(done)h+=`<div class="exp"><div class="exph">💡 Explanation</div>${q.e}</div>`;
+document.getElementById('qbody').innerHTML=h;
+document.getElementById('qbody').scrollTop=0;
+updDots();updProg();
+}
+function ansQ(idx,chosen){
+if(ans[idx]!==null&&ans[idx]!=='skipped')return;
+ch[idx]=chosen;ans[idx]=(chosen===qs[idx].a)?'correct':'wrong';
+document.getElementById('scn').textContent=ans.filter(a=>a==='correct').length;
+renderQ(idx);
+}
+function skipQ(){if(ans[cQ]===null)ans[cQ]='skipped';if(cQ<qs.length-1)renderQ(cQ+1);}
+function navQ(d){renderQ(Math.max(0,Math.min(qs.length-1,cQ+d)));}
+function renderSB(){
+df='ALL';document.querySelectorAll('.mfb').forEach(b=>b.classList.toggle('on',b.dataset.m==='ALL'));
+updDots();updProg();
+}
+document.querySelectorAll('.mfb').forEach(b=>b.addEventListener('click',()=>{
+df=b.dataset.m;document.querySelectorAll('.mfb').forEach(x=>x.classList.toggle('on',x===b));updDots();
+}));
+function updDots(){
+let h='';
+qs.forEach((q,i)=>{
+const hide=df!=='ALL'&&q.m!==df;
+let cls='dot'+(hide?' hd':'');
+if(!hide){if(i===cQ)cls+=' cur';else if(ans[i]==='correct')cls+=' ok';else if(ans[i]==='wrong')cls+=' ng';else if(ans[i]==='skipped')cls+=' sk';}
+h+=`<div class="${cls}" onclick="renderQ(${i})" title="Q${i+1} [${q.m}] ${q.s}">${i+1}</div>`;
+});
+document.getElementById('dgrid').innerHTML=h;
+}
+function updProg(){
+let h='';['EC','DSA','OS','MCU'].forEach(m=>{
+const idx=qs.map((_,i)=>i).filter(i=>qs[i].m===m);if(!idx.length)return;
+const c=idx.filter(i=>ans[i]==='correct').length;const p=0|c/idx.length*100;
+h+=`<div class="pr"><span class="prl" style="color:${MC[m]}">${m}</span><div class="prb"><div class="prf" style="width:${p}%;background:${MC[m]}"></div></div><span class="prn">${c}/${idx.length}</span></div>`;
+});
+document.getElementById('prows').innerHTML=h;
+}
+document.getElementById('bsub').addEventListener('click',()=>{
+const u=ans.filter(a=>a===null).length;
+if(u>0&&!confirm(`${u} unanswered question(s). Submit anyway?`))return;doSub();
+});
+function doSub(){
+clearInterval(tId);
+ans.forEach((_,i)=>{if(ans[i]===null)ans[i]='skipped';});
+const used=uMd==='practice'?Math.floor((Date.now()-tS)/1000):(uMd==='quick'?15:uM==='ALL'?90:30)*60-tL;
+showResult(used);
+}
+function showResult(tt){
+const correct=ans.filter(a=>a==='correct').length;
+const wrong=ans.filter(a=>a==='wrong').length;
+const skipped=ans.filter(a=>a==='skipped').length;
+const total=qs.length;const pct=0|correct/total*100;
+let em,msg;
+if(pct>=90){em='🏆';msg='Outstanding! CDAC CCE Exam Ready!';}
+else if(pct>=75){em='🥇';msg='Excellent performance! Almost there.';}
+else if(pct>=60){em='👍';msg='Good work! Keep practicing regularly.';}
+else if(pct>=40){em='📖';msg='Keep studying — focus on weak sessions.';}
+else{em='💪';msg='Review your syllabus topics session by session.';}
+document.getElementById('rem').textContent=em;
+document.getElementById('rpct').textContent=pct+'%';
+document.getElementById('rmsg').textContent=msg;
+document.getElementById('rcor').textContent=correct;
+document.getElementById('rwr').textContent=wrong;
+document.getElementById('rsk').textContent=skipped;
+const mm=0|tt/60,ss=tt%60;
+document.getElementById('rtm').textContent=`${mm}m${ss}s`;
+const mods=['EC','DSA','OS','MCU'];
+let bh='<h3>📊 Module & Session Breakdown</h3>';
+mods.forEach(m=>{
+const idx=qs.map((_,i)=>i).filter(i=>qs[i].m===m);if(!idx.length)return;
+const c=idx.filter(i=>ans[i]==='correct').length;const p=0|c/idx.length*100;
+const col=p>=70?'var(--grn)':p>=40?'var(--ylw)':'var(--red)';
+bh+=`<div class="mbr"><div class="mbrt"><span style="color:${MC[m]};font-weight:700">${m} — ${idx.length} Questions</span><span style="color:${col}">${c}/${idx.length} · ${p}%</span></div><div class="mbrb"><div class="mbrf" style="width:${p}%;background:${MC[m]}"></div></div></div>`;
+const sessions=[...new Set(idx.map(i=>qs[i].s))];
+sessions.forEach(sess=>{
+const si=idx.filter(i=>qs[i].s===sess);
+const sc=si.filter(i=>ans[i]==='correct').length;const sp=0|sc/si.length*100;
+const sc_=sp>=70?'var(--grn)':sp>=40?'var(--ylw)':'var(--red)';
+bh+=`<div class="sbr"><div class="sbrt"><span style="color:var(--t3)">${sess}</span><span style="color:${sc_}">${sc}/${si.length} · ${sp}%</span></div><div class="sbrb"><div class="sbrf" style="width:${sp}%;background:${sc_}"></div></div></div>`;
+});
+});
+document.getElementById('rbreak').innerHTML=bh;
+saveLB(correct,total,pct,tt);renderLB();
+show('sr');if(pct>=70)confetti();
+}
+function saveLB(score,total,pct,time){
+let lb=JSON.parse(localStorage.getItem(LBK)||'[]');
+lb.push({name:uN,score,total,pct,time,mod:uM,mode:uMd,date:new Date().toLocaleDateString('en-IN')});
+lb.sort((a,b)=>b.pct-a.pct||a.time-b.time);
+localStorage.setItem(LBK,JSON.stringify(lb.slice(0,100)));
+}
+function renderLB(){
+let lb=JSON.parse(localStorage.getItem(LBK)||'[]');
+if(!lb.length){document.getElementById('rlb').innerHTML='<h3>🏆 Leaderboard</h3><p style="color:var(--t3);font-size:.8rem;margin-top:.5rem">No attempts yet. Be the first!</p>';return;}
+const cols=['#3b82f6','#22c55e','#eab308','#a855f7','#f97316','#ef4444'];
+const meds=['🥇','🥈','🥉'];
+const top3=lb.slice(0,3);
+const pod=[top3[1],top3[0],top3[2]];const ph=[35,55,20];
+let h='<h3>🏆 Leaderboard</h3><div class="podium">';
+pod.forEach((e,pi)=>{
+if(!e){h+=`<div class="ps"></div>`;return;}
+const rank=lb.indexOf(e);const col=cols[rank%6];
+h+=`<div class="ps"><span class="pm">${meds[rank]||''}</span><div class="pav" style="background:${col}">${e.name.charAt(0).toUpperCase()}</div><div class="pnm">${e.name}</div><div class="ppc">${e.pct}%·${e.score}/${e.total}</div><div class="pb" style="height:${ph[pi]}px;background:${col}33;border-top:2px solid ${col}"></div></div>`;
+});
+h+='</div>';
+h+=`<table class="lbt"><thead><tr><th>#</th><th>Name</th><th>%</th><th>Score</th><th>Module</th><th>Mode</th><th>Date</th></tr></thead><tbody>`;
+lb.forEach((e,i)=>{
+const isYou=e.name===uN;
+h+=`<tr class="${isYou?'you':''}"><td>${i+1}</td><td>${e.name}${isYou?'<span class="ytag">YOU</span>':''}</td><td>${e.pct}%</td><td>${e.score}/${e.total}</td><td>${e.mod}</td><td>${e.mode}</td><td>${e.date}</td></tr>`;
+});
+h+=`</tbody></table>`;
+document.getElementById('rlb').innerHTML=h;
+}
+function confetti(){
+const cols=['#3b82f6','#22c55e','#eab308','#a855f7','#f97316','#ef4444','#fff'];
+for(let i=0;i<120;i++){
+const el=document.createElement('div');el.className='cf';
+const sz=5+Math.random()*8;
+el.style.cssText=`left:${Math.random()*100}vw;top:-15px;width:${sz}px;height:${sz}px;background:${cols[i%7]};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*2}s;transform:rotate(${Math.random()*360}deg)`;
+document.body.appendChild(el);setTimeout(()=>el.remove(),7000);
+}
+}
+document.getElementById('bprev').addEventListener('click',()=>navQ(-1));
+document.getElementById('bnext').addEventListener('click',()=>navQ(1));
+document.getElementById('bskip').addEventListener('click',skipQ);
+document.getElementById('bretry').addEventListener('click',()=>{show('sl');initLand();});
+document.getElementById('bhome').addEventListener('click',()=>{show('sl');initLand();});
+document.addEventListener('keydown',e=>{
+if(!document.getElementById('sx').classList.contains('on'))return;
+if(e.key==='ArrowRight')navQ(1);
+else if(e.key==='ArrowLeft')navQ(-1);
+else if(['1','2','3','4'].includes(e.key)){const i=+e.key-1;if(ans[cQ]===null||ans[cQ]==='skipped')ansQ(cQ,i);}
+});
+initLand();
+</script>
+</body>
+</html>
+ENDOFFILE
+echo "✅ Done!"
+wc -l /mnt/user-data/outputs/CDAC_ESD_MockExam_2026.html
+wc -c /mnt/user-data/outputs/CDAC_ESD_MockExam_2026.html
